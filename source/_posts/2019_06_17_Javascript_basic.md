@@ -268,15 +268,15 @@ console.log(a)
     
 7. Scroll events
 
-* "scroll" : 滾輪滾動
+    * "scroll" : 滾輪滾動
 
 8. Focus events
 
-* "focus" : ![](https://i.imgur.com/gldrD1L.png)
+    * "focus" : ![](https://i.imgur.com/gldrD1L.png)
 
 9. Load event
 
-* 讀取用
+    * 讀取用
 
 ### 其他
 
