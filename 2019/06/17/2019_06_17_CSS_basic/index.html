@@ -92,20 +92,21 @@
 <p>  可以寫成這樣(四個參數 : 上、右、下、左，兩個參數 : 上下、右左)</p>
   <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">1px</span> <span class="number">5px</span> <span class="number">10px</span> <span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
+<ul>
+<li><p>左右置中方法</p>
+<ol>
+<li><p>左右有margin</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin</span>: 0 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>左右沒有margin</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text=align: center;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 </li>
 </ul>
-<pre><code>* 左右置中方法
-
-    1. 左右有margin
-
-    <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">margin</span>: 0 <span class="selector-tag">auto</span>;</span><br></pre></td></tr></table></figure>
-
-
-    2. 左右沒有margin
-
-    <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">text=align: center;</span><br></pre></td></tr></table></figure></code></pre><ul>
-<li>Box Model : F12可看到，可搭配調整</li>
+</li>
+<li><p>Box Model : F12可看到，可搭配調整</p>
+</li>
 </ul>
 <p><img src="https://i.imgur.com/xSZAP4d.png" alt></p>
 <h3 id="Borders"><a href="#Borders" class="headerlink" title="Borders"></a>Borders</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">border-width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">border-color</span>: red;</span><br><span class="line">    <span class="attribute">border-style</span>: solid;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -129,22 +130,21 @@
 <ul>
 <li><p>Grouping前</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line"><span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.thisOtherClass</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.yetAnotherClass</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+</li>
+<li><p>Grouping後</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>, <span class="selector-class">.thisOtherClass</span>, <span class="selector-class">.yetAnotherClass</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code>* Grouping後
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>, <span class="selector-class">.thisOtherClass</span>, <span class="selector-class">.yetAnotherClass</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></code></pre><ol start="2">
 <li><p>Nesting</p>
  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#top</span> <span class="selector-tag">h1</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ff0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-id">#top</span> <span class="selector-tag">p</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"top"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Chocolate curry<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is my recipe for making curry purely with chocolate<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Mmm mm mmmmm<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 </li>
 </ol>
-<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"top"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Chocolate curry<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>This is my recipe for making curry purely with chocolate<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Mmm mm mmmmm<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></code></pre><h3 id="Pseudo-Classes"><a href="#Pseudo-Classes" class="headerlink" title="Pseudo Classes"></a>Pseudo Classes</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector</span><span class="selector-pseudo">:pseudo_class</span>&#123;</span><br><span class="line">    <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Pseudo-Classes"><a href="#Pseudo-Classes" class="headerlink" title="Pseudo Classes"></a>Pseudo Classes</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">selector</span><span class="selector-pseudo">:pseudo_class</span>&#123;</span><br><span class="line">    <span class="attribute">property</span>: value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>link : 未連結</li>
@@ -164,15 +164,14 @@
 
 <p><img src="https://i.imgur.com/a9e4eHv.png" alt></p>
 <h3 id="Display"><a href="#Display" class="headerlink" title="Display"></a>Display</h3><ol>
-<li>Inline : 文字</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123; <span class="attribute">display</span>: inline &#125;</span><br></pre></td></tr></table></figure>
+<li><p>Inline : 文字</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">li</span> &#123; <span class="attribute">display</span>: inline &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Block : 區塊</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#navigation</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>Block : 區塊</li>
+</li>
 </ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#navigation</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>Inline與Block差異 :</strong></p>
 <p><img src="https://i.imgur.com/NLqypsw.png" alt></p>
 <ol start="3">
