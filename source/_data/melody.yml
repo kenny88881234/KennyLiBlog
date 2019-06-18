@@ -15,10 +15,10 @@
 # format: xxx: /xxx/||icon
 # ---------------
 menu:
-  Home: /||fa fa-home
-  Archives: /archives/||fa fa-archive
-  Tags: /tags/||fa fa-tags
-  Categories: /categories/||fa fa-folder-open
+  Home: /KennyLiBlog/||fa fa-home
+  Archives: /KennyLiBlog/archives/||fa fa-archive
+  Tags: /KennyLiBlog/tags/||fa fa-tags
+  Categories: /KennyLiBlog/categories/||fa fa-folder-open
   #Link: /link/||fa fa-link
   #About: /about/||fa fa-heart
 #   #XXX: /xxx
@@ -27,7 +27,7 @@ menu:
 # Favicon
 # use my-favicon.ico to avoid duplicate favicon of melody theme
 # ---------------
-favicon: /img/favicon.ico
+#favicon: /img/favicon.ico
 
 # PWA
 # See https://github.com/JLHwung/hexo-offline
@@ -383,8 +383,8 @@ font:
 # 主頁subtitle
 subtitle: 
   enable: true
-  sub1: 今日事,今日畢
-  sub2: Never put off till tomorrow what you can do today
+  sub1: 唯一不變的就是一直變化
+  sub2: The only constant is always changing
 
 #側邊欄顯示設置
 aside:

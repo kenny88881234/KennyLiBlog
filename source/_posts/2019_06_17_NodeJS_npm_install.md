@@ -7,6 +7,8 @@ tags:
 categories:
   - 安裝
 date: 2019-06-17
+top_img: https://i.loli.net/2019/06/18/5d086cddac98033359.jpg
+cover: https://i.loli.net/2019/06/18/5d086cddac98033359.jpg
 ---
 # [安裝] NodeJS、npm 的安裝與配置
 

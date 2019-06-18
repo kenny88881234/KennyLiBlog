@@ -4,7 +4,7 @@
 
 # Site
 title: Kenny's Blog
-subtitle:
+subtitle: 唯一不變的就是一直變化
 description:
 keywords:
 author: Kenny Li
@@ -14,7 +14,7 @@ timezone:
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://kenny88881234.github.io/KennyLiBlog/
-root: /
+root: /KennyLiBlog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
