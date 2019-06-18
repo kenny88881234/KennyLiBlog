@@ -59,6 +59,7 @@ cover: https://i.loli.net/2019/06/18/5d088f653a59993204.jpg
 3. `git commit -m "message"`
 4. `git remote` : 可以檢視你已經設定好的遠端版本庫
 5. `git push` : 推上 Github
+6. `git pull` : 從 Github 將專案拉下來
 
 ##### 其他 :
 
