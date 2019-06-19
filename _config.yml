@@ -79,5 +79,5 @@ theme: Butterfly
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:kenny88881234/KennyLiBlog.git
+  repo: git@github.com:kenny88881234/kenny88881234.github.io.git
   branch: master
