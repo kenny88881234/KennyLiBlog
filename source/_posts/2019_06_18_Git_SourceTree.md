@@ -7,8 +7,8 @@ tags:
 categories:
   - 工具
 date: 2019-06-18
-top_img: /KennyLiBlog/img/tool.jpg
-cover: /KennyLiBlog/img/tool.jpg
+top_img: /img/tool.jpg
+cover: /img/tool.jpg
 ---
 # [工具] Git and SourceTree
 

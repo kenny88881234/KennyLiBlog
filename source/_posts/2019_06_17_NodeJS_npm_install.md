@@ -7,8 +7,8 @@ tags:
 categories:
   - 安裝
 date: 2019-06-17
-top_img: /KennyLiBlog/img/install.jpg
-cover: /KennyLiBlog/img/install.jpg
+top_img: /img/install.jpg
+cover: /img/install.jpg
 ---
 # [安裝] NodeJS、npm 的安裝與配置
 

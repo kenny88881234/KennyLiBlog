@@ -7,8 +7,8 @@ tags:
 categories:
   - 問題
 date: 2019-06-19
-top_img: /KennyLiBlog/img/problem.jpg
-cover: /KennyLiBlog/img/problem.jpg
+top_img: /img/problem.jpg
+cover: /img/problem.jpg
 ---
 # [問題] Hexo 部署上 Github 後頁面全空了
 

@@ -15,10 +15,10 @@
 # format: xxx: /xxx/||icon
 # ---------------
 menu:
-  Home: /KennyLiBlog/||fa fa-home
-  Archives: /KennyLiBlog/archives/||fa fa-archive
-  Tags: /KennyLiBlog/tags/||fa fa-tags
-  Categories: /KennyLiBlog/categories/||fa fa-folder-open
+  Home: /||fa fa-home
+  Archives: /archives/||fa fa-archive
+  Tags: /tags/||fa fa-tags
+  Categories: /categories/||fa fa-folder-open
   #Link: /link/||fa fa-link
   #About: /about/||fa fa-heart
 #   #XXX: /xxx
@@ -346,6 +346,7 @@ reward:
 
 related_post:
   enable: true
+  limit: 6
 
 
 # canvas_ribbon
@@ -407,7 +408,7 @@ translate:
   #延迟时间,若不在前, 要设定延迟翻译时间, 如100表示100ms,默认为0
   translateDelay: 0
   #博客网址
-  cookieDomain: "https://jerryc.me/"
+  cookieDomain: "https://KennyLi.me/"
   #當文字是簡體時，按鈕顯示的文字
   msgToTraditionalChinese: "简"
   #當文字是繁體時，按鈕顯示的文字

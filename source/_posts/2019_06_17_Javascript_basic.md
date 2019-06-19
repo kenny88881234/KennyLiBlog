@@ -7,8 +7,8 @@ tags:
 categories:
   - 筆記
 date: 2019-06-17
-top_img: /KennyLiBlog/img/note.jpg
-cover: /KennyLiBlog/img/note.jpg
+top_img: /img/note.jpg
+cover: /img/note.jpg
 ---
 # [筆記] Javascript 基礎
 
