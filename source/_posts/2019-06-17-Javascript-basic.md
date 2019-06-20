@@ -298,4 +298,4 @@ console.log(a)
 
         * 區塊語句(if、else、for、while...等等)外就會讀不到值
 
-###### tags: `程式語言` `Javascript`
+###### tags: `筆記` `程式語言` `Javascript`

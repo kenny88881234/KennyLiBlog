@@ -51,4 +51,14 @@ cover: /img/code.jpg
 
 ![](https://i.imgur.com/7USxt9j.png)
 
+**`hexo d -g` 會導致 Github 上的 `CNAME` 消失**
+
+* 解決方法 : 在本地端目錄底下的 `source` 建一個 `CNAME` 並打上域名
+
+```=
+cd blog //你的hexo根目錄名
+cd source
+touch CNAME
+```
+
 ###### tags: `實作` `Hexo Blog` `Git` `網域`
