@@ -1,0 +1,57 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>實作 - 如何更改 Github-Page 的網域 | Kenny's Blog</title><meta name="description" content="實作 - 如何更改 Github-Page 的網域"><meta name="keywords" content="Git,實作,Hexo Blog"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kenny88881234.github.io/2019/06/20/Change-domain/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="實作 - 如何更改 Github-Page 的網域"><meta name="twitter:description" content="實作 - 如何更改 Github-Page 的網域"><meta name="twitter:image" content="/img/code.jpg"><meta property="og:type" content="article"><meta property="og:title" content="實作 - 如何更改 Github-Page 的網域"><meta property="og:url" content="https://kenny88881234.github.io/2019/06/20/Change-domain/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="實作 - 如何更改 Github-Page 的網域"><meta property="og:image" content="/img/code.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="問題 - Hexo 部署上 Github 後頁面全空了" href="https://kenny88881234.github.io/2019/06/19/Hexo-problem-Gitsubmodules/"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://KennyLi.me/","msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  highlight_copy: 'true',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days'
+
+  
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#實作-如何更改-Github-Page-的網域"><span class="toc-number">1.</span> <span class="toc-text">[實作] 如何更改 Github-Page 的網域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-首先要先有個自己的域名"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 首先要先有個自己的域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-綁定網域"><span class="toc-number">1.0.2.</span> <span class="toc-text">2. 綁定網域</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tags-實作-Hexo-Blog-Git-網域"><span class="toc-number">1.0.2.0.0.1.</span> <span class="toc-text">tags: 實作 Hexo Blog Git 網域</span></a></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/code.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Kenny's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">實作 - 如何更改 Github-Page 的網域</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-06-20<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-06-20</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/實作/">實作</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="實作-如何更改-Github-Page-的網域"><a href="#實作-如何更改-Github-Page-的網域" class="headerlink" title="[實作] 如何更改 Github-Page 的網域"></a>[實作] 如何更改 Github-Page 的網域</h1><h3 id="1-首先要先有個自己的域名"><a href="#1-首先要先有個自己的域名" class="headerlink" title="1. 首先要先有個自己的域名"></a>1. 首先要先有個自己的域名</h3><ul>
+<li><p>用買的或使用免費的都可以</p>
+</li>
+<li><p>這裡推薦免費域名網站 : <a href="https://nctu.me/" target="_blank" rel="noopener">NCTU.ME</a></p>
+<p>  <img src="https://i.imgur.com/Zj4kX0Y.png" alt></p>
+<ul>
+<li>這是交大免費提供的網域服務，交大學生有學校信箱就能直接使用，校外人士就必須申請一個TWID帳號進行實名認證</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li><p>申請帳號 : 交大信箱 or TWID帳號</p>
+</li>
+<li><p>申請網域 : 網域管理 → 新增網域</p>
+<ul>
+<li><p>每個帳號只能申請三個域名</p>
+</li>
+<li><p>域名格式為 : &lt;輸入的字元&gt;.nctu.me</p>
+<p><img src="https://i.imgur.com/fJT8fTq.png" alt></p>
+</li>
+</ul>
+</li>
+<li><p>新增DNS紀錄 : DNS管理 → 新增紀錄</p>
+<p> <img src="https://i.imgur.com/Za4AXuQ.png" alt></p>
+<p> 在 A 紀錄底下填上你要綁定的服務商的 DNS Server IP<br> Github 的 DNS Server IP 是 185.199.108~111.153 其中一個<br> 在終端機 <code>ping &lt;your name&gt;.github.io</code> 就可以看到</p>
+<p> <img src="https://i.imgur.com/wVvR8dk.png" alt></p>
+<p> 等待一下，DNS 設定會在1、2分鐘內設定完成</p>
+</li>
+</ol>
+<h3 id="2-綁定網域"><a href="#2-綁定網域" class="headerlink" title="2. 綁定網域"></a>2. 綁定網域</h3><ul>
+<li>到 Github 專案的 Settings 頁面</li>
+<li>在 GitHub Pages 下的 custom domain 欄位中填上剛剛申請的域名</li>
+<li>按下 save 就完成了</li>
+</ul>
+<p><img src="https://i.imgur.com/7USxt9j.png" alt></p>
+<h6 id="tags-實作-Hexo-Blog-Git-網域"><a href="#tags-實作-Hexo-Blog-Git-網域" class="headerlink" title="tags: 實作 Hexo Blog Git 網域"></a>tags: <code>實作</code> <code>Hexo Blog</code> <code>Git</code> <code>網域</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kenny88881234.github.io/2019/06/20/Change-domain/">https://kenny88881234.github.io/2019/06/20/Change-domain/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git    </a><a class="post-meta__tags" href="/tags/實作/">實作    </a><a class="post-meta__tags" href="/tags/Hexo-Blog/">Hexo Blog    </a></div><div class="post_share"><div class="social-share" data-image="/img/code.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/06/19/Hexo-problem-Gitsubmodules/"><img class="next_cover lozad" data-src="/img/problem.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>問題 - Hexo 部署上 Github 後頁面全空了</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/19/Hexo-problem-Gitsubmodules/" title="問題 - Hexo 部署上 Github 後頁面全空了"><img class="relatedPosts_cover lozad" data-src="/img/problem.jpg"><div class="relatedPosts_title">問題 - Hexo 部署上 Github 後頁面全空了</div></a></div><div class="relatedPosts_item"><a href="/2019/06/18/HexoBlog/" title="實作 - Hexo Blog 架設"><img class="relatedPosts_cover lozad" data-src="/img/code.jpg"><div class="relatedPosts_title">實作 - Hexo Blog 架設</div></a></div><div class="relatedPosts_item"><a href="/2019/06/18/Git-SourceTree/" title="工具 - Git and SourceTree"><img class="relatedPosts_cover lozad" data-src="/img/tool.jpg"><div class="relatedPosts_title">工具 - Git and SourceTree</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>
