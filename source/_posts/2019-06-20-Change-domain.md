@@ -39,6 +39,8 @@ cover: /img/code.jpg
     Github 的 DNS Server IP 是 185.199.108~111.153 其中一個
     在終端機 `ping <your name>.github.io` 就可以看到
 
+    **也可以用 CNAME 紀錄，改成填上 `<your name>.github.io`**
+
     ![](https://i.imgur.com/wVvR8dk.png)
 
     等待一下，DNS 設定會在1、2分鐘內設定完成
