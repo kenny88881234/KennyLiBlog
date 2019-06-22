@@ -60,6 +60,10 @@ cover: /img/tool.jpg
 4. `git remote` : 可以檢視你已經設定好的遠端版本庫
 5. `git push` : 推上 Github
 6. `git pull` : 從 Github 將專案拉下來
+7. `git branch` : 查看分支
+8. `git checkout <分支名稱>` : 切換分支
+
+**[命令大全](https://mitblog.pixnet.net/blog/post/44380918-%5Bgit%5D-git-%E6%8C%87%E4%BB%A4%E5%A4%A7%E5%85%A8%E3%80%81git-%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E3%80%81basic-git-comman)**
 
 ##### 其他 :
 
