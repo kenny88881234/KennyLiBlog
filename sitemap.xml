@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/06/24/Google-search-Hexo-Blog/</loc>
+    
+    <lastmod>2019-06-24T09:01:15.896Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/06/23/Flask-on-Heroku/</loc>
+    
+    <lastmod>2019-06-24T08:56:31.715Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/06/18/HexoBlog/</loc>
     
     <lastmod>2019-06-24T07:18:13.062Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>https://kennyliblog.nctu.me/2019/06/23/Python-web-crawler/</loc>
     
     <lastmod>2019-06-24T06:20:14.155Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/23/Flask-on-Heroku/</loc>
-    
-    <lastmod>2019-06-24T06:20:14.154Z</lastmod>
     
   </url>
   
@@ -79,14 +86,14 @@
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
