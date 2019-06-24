@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://kenny88881234.github.io/
+url: https://kennyliblog.nctu.me/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: google355806c07bb19c3f.html
 
 # Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
@@ -81,3 +81,7 @@ deploy:
   type: git
   repo: git@github.com:kenny88881234/kenny88881234.github.io.git
   branch: master
+
+#Sitemap
+sitemap:
+  path: sitemap.xml
