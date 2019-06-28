@@ -29,8 +29,11 @@ import urllib.request as req
 #建立一個 Request 物件，附加 Request Headers 的資訊
 url = "網址"
 request = req.Request(url, headers = {
-    "User-Agent":"需要的資訊" #到網頁 → F12 → Network → 通常是最上面的那個 → Headers Request → Headers → user-agent
+    "User-Agent":"需要的資訊" #到網頁 → F12 → Network → 通常是最上面的那個 → Headers → Request Headers → user-agent
 })
+
+with req.urlopen(request) as response:
+    data = response.read().decode("utf-8")
 ```
 
 ### 解析資料
