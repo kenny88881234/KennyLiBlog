@@ -1,0 +1,660 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - MySQL 基礎 | Kenny's Blog</title><meta name="description" content="筆記 - MySQL 基礎"><meta name="keywords" content="筆記,程式語言,MySQL,SQL,資料庫"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - MySQL 基礎"><meta name="twitter:description" content="筆記 - MySQL 基礎"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - MySQL 基礎"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - MySQL 基礎"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="問題 - 安裝 MySQL 後環境變數被清空了，導致終端機快速開啟 VS code 失效了" href="https://kennyliblog.nctu.me/2019/06/26/Install-MySQL-code-not-working/"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://KennyLi.me/","msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  highlight_copy: 'true',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days'
+
+  
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#筆記-MySQL-基礎"><span class="toc-number">1.</span> <span class="toc-text">[筆記] MySQL 基礎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本介紹"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什麼是-Database"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">什麼是 Database</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SQL-與-NoSQL"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">SQL 與 NoSQL</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝"><span class="toc-number">1.0.2.</span> <span class="toc-text">安裝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Database-與-Table"><span class="toc-number">1.0.3.</span> <span class="toc-text">Database 與 Table</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Database-基本操作"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">Database 基本操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Table"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">Table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Table-Data-Type"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">Table Data Type</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Table-的創建"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">Table 的創建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Table-基本操作"><span class="toc-number">1.0.3.5.</span> <span class="toc-text">Table 基本操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Insert"><span class="toc-number">1.0.4.</span> <span class="toc-text">Data Insert</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何插入資料"><span class="toc-number">1.0.4.1.</span> <span class="toc-text">如何插入資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看資料"><span class="toc-number">1.0.4.2.</span> <span class="toc-text">查看資料</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#創建特殊要求的-Table"><span class="toc-number">1.0.4.3.</span> <span class="toc-text">創建特殊要求的 Table</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CRUD-基本的增刪改查"><span class="toc-number">1.0.5.</span> <span class="toc-text">CRUD 基本的增刪改查</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-SQL-文件-Create"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">使用 SQL 文件 Create</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Read"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">Read</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Update"><span class="toc-number">1.0.5.3.</span> <span class="toc-text">Update</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Delete"><span class="toc-number">1.0.5.4.</span> <span class="toc-text">Delete</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-字串相關處理方法"><span class="toc-number">1.0.6.</span> <span class="toc-text">SQL 字串相關處理方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#拼接-CONCAT"><span class="toc-number">1.0.6.1.</span> <span class="toc-text">拼接 CONCAT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#剪輯-SUBSTRING、REPLACE"><span class="toc-number">1.0.6.2.</span> <span class="toc-text">剪輯 SUBSTRING、REPLACE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反轉-REVERSE"><span class="toc-number">1.0.6.3.</span> <span class="toc-text">反轉 REVERSE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#長度-CHAR-LENGTH"><span class="toc-number">1.0.6.4.</span> <span class="toc-text">長度 CHAR_LENGTH</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#大小寫-LOWER、UPPER"><span class="toc-number">1.0.6.5.</span> <span class="toc-text">大小寫 LOWER、UPPER</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SELECT-進階"><span class="toc-number">1.0.7.</span> <span class="toc-text">SELECT 進階</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#按規則排序-ORDER-BY"><span class="toc-number">1.0.7.1.</span> <span class="toc-text">按規則排序 ORDER BY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#限制搜尋資料顯示的資料數目-LIMIT"><span class="toc-number">1.0.7.2.</span> <span class="toc-text">限制搜尋資料顯示的資料數目 LIMIT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模糊搜尋-LIKE"><span class="toc-number">1.0.7.3.</span> <span class="toc-text">模糊搜尋 LIKE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#資料聚合處理"><span class="toc-number">1.0.8.</span> <span class="toc-text">資料聚合處理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#計數-COUNT"><span class="toc-number">1.0.8.1.</span> <span class="toc-text">計數 COUNT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#統計唯一值-DISTINCT"><span class="toc-number">1.0.8.2.</span> <span class="toc-text">統計唯一值 DISTINCT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#資料整合-GROUP-BY"><span class="toc-number">1.0.8.3.</span> <span class="toc-text">資料整合 GROUP BY</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最大值與最小值-MAX、MIN"><span class="toc-number">1.0.8.4.</span> <span class="toc-text">最大值與最小值 MAX、MIN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#和與平均值-SUM、AVG"><span class="toc-number">1.0.8.5.</span> <span class="toc-text">和與平均值 SUM、AVG</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HAVING"><span class="toc-number">1.0.8.6.</span> <span class="toc-text">HAVING</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Type-詳細介紹"><span class="toc-number">1.0.9.</span> <span class="toc-text">Data Type 詳細介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#數值類型"><span class="toc-number">1.0.9.1.</span> <span class="toc-text">數值類型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#時間類型"><span class="toc-number">1.0.9.2.</span> <span class="toc-text">時間類型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字符串類型"><span class="toc-number">1.0.9.3.</span> <span class="toc-text">字符串類型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#對已經定義好的-Table-，更改-Column-的資料類型"><span class="toc-number">1.0.9.4.</span> <span class="toc-text">對已經定義好的 Table ，更改 Column 的資料類型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-邏輯操作符"><span class="toc-number">1.0.10.</span> <span class="toc-text">SQL 邏輯操作符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#EQUAL-與-NOT-EQUAL"><span class="toc-number">1.0.10.1.</span> <span class="toc-text">EQUAL 與 NOT EQUAL</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#LIKE-與-NOT-LIKE"><span class="toc-number">1.0.10.2.</span> <span class="toc-text">LIKE 與 NOT LIKE</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#GREATER-THAN-與-LESS-THAN"><span class="toc-number">1.0.10.3.</span> <span class="toc-text">GREATER THAN 與 LESS THAN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AND-與-OR"><span class="toc-number">1.0.10.4.</span> <span class="toc-text">AND 與 OR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#BETWEEN"><span class="toc-number">1.0.10.5.</span> <span class="toc-text">BETWEEN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#IN-與-NOT-IN"><span class="toc-number">1.0.10.6.</span> <span class="toc-text">IN 與 NOT IN</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CASE-STATEMENT"><span class="toc-number">1.0.10.7.</span> <span class="toc-text">CASE STATEMENT</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-內建函式"><span class="toc-number">1.0.11.</span> <span class="toc-text">MySQL 內建函式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#數值處理函式"><span class="toc-number">1.0.11.1.</span> <span class="toc-text">數值處理函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日期時間函式"><span class="toc-number">1.0.11.2.</span> <span class="toc-text">日期時間函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字串處理函式"><span class="toc-number">1.0.11.3.</span> <span class="toc-text">字串處理函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#信息函式"><span class="toc-number">1.0.11.4.</span> <span class="toc-text">信息函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#聚合函式"><span class="toc-number">1.0.11.5.</span> <span class="toc-text">聚合函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#加密函式"><span class="toc-number">1.0.11.6.</span> <span class="toc-text">加密函式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#關聯-一對多"><span class="toc-number">1.0.12.</span> <span class="toc-text">關聯 ( 一對多 )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通過-ID-關聯兩個-Table"><span class="toc-number">1.0.12.1.</span> <span class="toc-text">通過 ID 關聯兩個 Table</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-FOREIGN-KEY-約束關聯字段"><span class="toc-number">1.0.12.2.</span> <span class="toc-text">使用 FOREIGN KEY 約束關聯字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#關聯表的操作"><span class="toc-number">1.0.12.3.</span> <span class="toc-text">關聯表的操作</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#關聯-多對多"><span class="toc-number">1.0.13.</span> <span class="toc-text">關聯 ( 多對多 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MySQL-存入中文，編碼問題"><span class="toc-number">1.0.14.</span> <span class="toc-text">MySQL 存入中文，編碼問題</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Window"><span class="toc-number">1.0.14.1.</span> <span class="toc-text">Window</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Mac"><span class="toc-number">1.0.14.2.</span> <span class="toc-text">Mac</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tags-筆記-程式語言-SQL-資料庫-MySQL"><span class="toc-number">1.0.14.2.0.1.</span> <span class="toc-text">tags: 筆記 程式語言 SQL 資料庫 MySQL</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/note.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Kenny's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">筆記 - MySQL 基礎</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-06-28<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-06-28</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/筆記/">筆記</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="筆記-MySQL-基礎"><a href="#筆記-MySQL-基礎" class="headerlink" title="[筆記] MySQL 基礎"></a>[筆記] MySQL 基礎</h1><h3 id="基本介紹"><a href="#基本介紹" class="headerlink" title="基本介紹"></a>基本介紹</h3><h4 id="什麼是-Database"><a href="#什麼是-Database" class="headerlink" title="什麼是 Database"></a>什麼是 Database</h4><p><img src="https://i.imgur.com/ZYaxYeK.png" alt></p>
+<ul>
+<li>DBMS 為向 Database 存取的訪問接口</li>
+<li>通常稱 DBMS + Database 為 Database，EX : MySQL、Oracle、MongoDB…等等</li>
+</ul>
+<h4 id="SQL-與-NoSQL"><a href="#SQL-與-NoSQL" class="headerlink" title="SQL 與 NoSQL"></a>SQL 與 NoSQL</h4><ul>
+<li>區別在於有沒有使用 SQL 語言，NoSQL 的資料儲存可以不需要固定的表格模式</li>
+<li>SQL : MySQL、Oracle…等等</li>
+<li>NoSQL : MongoDB…等等</li>
+</ul>
+<h3 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h3><p>Window :</p>
+<ul>
+<li><p>建議用 Installer 下載安裝 : <a href="https://dev.mysql.com/downloads/windows/installer/5.7.html" target="_blank" rel="noopener">MySQL Installer 5.7.26</a></p>
+<p>  <strong>中間跳過的步驟默認就好</strong></p>
+<p>  <img src="https://i.imgur.com/wuWpNry.png" alt></p>
+<ul>
+<li><p>建議選擇 Developer Default</p>
+<p><img src="https://i.imgur.com/CcbMwYt.png" alt></p>
+</li>
+<li><p>這步檢查依賴，<code>Execute</code> 就好</p>
+<p><img src="https://i.imgur.com/uPpWiDu.png" alt></p>
+</li>
+<li><p>這邊設定密碼</p>
+<p><img src="https://i.imgur.com/IcsLgw7.png" alt></p>
+</li>
+<li><p>這邊輸入剛剛設定的密碼，點擊 <code>Check</code></p>
+<p><img src="https://i.imgur.com/twA25Yx.png" alt></p>
+</li>
+<li><p>之後在這裡進行操作，輸入剛剛設定的密碼</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>P.S.後來在另一台電腦一直無法安裝，有閃退的情況，後來安裝 8.0.16 就正常了</strong></p>
+<p>macOS :</p>
+<ul>
+<li>下載地址 : <a href="https://dev.mysql.com/downloads/mysql/5.7.html#downloads" target="_blank" rel="noopener">MySQL 官網 - MySQL Community Server 5.7</a></li>
+</ul>
+<h3 id="Database-與-Table"><a href="#Database-與-Table" class="headerlink" title="Database 與 Table"></a>Database 與 Table</h3><ul>
+<li>Database 是由很多 Table 組成的</li>
+<li>Table 存放資料，且是有結構的</li>
+</ul>
+<h4 id="Database-基本操作"><a href="#Database-基本操作" class="headerlink" title="Database 基本操作"></a>Database 基本操作</h4><ul>
+<li><p><code>show databases;</code> : 顯示目前有哪些 Database</p>
+</li>
+<li><p><code>create database &lt;name&gt;;</code> : 創建 Database</p>
+</li>
+<li><p><code>drop database &lt;name&gt;;</code> : 刪除 Database</p>
+</li>
+<li><p><code>use &lt;database name&gt;;</code> : 切換 Database</p>
+</li>
+<li><p><code>select database();</code> : 查看目前正在使用的是哪個 Database</p>
+</li>
+<li><p><code>delimiter &lt;結束符號&gt;</code> : 預設結束符號是 <code>;</code>，這行命令可以做修改 ( 不建議 )</p>
+</li>
+<li><p><code>show warnings;</code> : 查看錯誤訊息</p>
+<p>  <strong>SQL 大小寫都可運行，建議關鍵字大寫</strong></p>
+</li>
+</ul>
+<h4 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h4><p><img src="https://i.imgur.com/1I7Ew2d.png" alt></p>
+<ul>
+<li>column : 行，相同的資料類型</li>
+<li>row : 列，一筆一筆的數據</li>
+</ul>
+<h4 id="Table-Data-Type"><a href="#Table-Data-Type" class="headerlink" title="Table Data Type"></a>Table Data Type</h4><p>有三種大分類 : Numeric、String、Date</p>
+<ul>
+<li><a href="https://dev.mysql.com/doc/refman/5.7/en/data-type-overview.html" target="_blank" rel="noopener">資料類型官方文檔</a></li>
+</ul>
+<h4 id="Table-的創建"><a href="#Table-的創建" class="headerlink" title="Table 的創建"></a>Table 的創建</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> person</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    phone <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    age <span class="built_in">INT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Table-基本操作"><a href="#Table-基本操作" class="headerlink" title="Table 基本操作"></a>Table 基本操作</h4><ul>
+<li><p><code>show tables</code> : 顯示目前有哪些 Table</p>
+</li>
+<li><p><code>show columns from &lt;table name&gt;</code> : 顯示 Table 的每個 columns</p>
+</li>
+<li><p><code>desc &lt;table name&gt;</code> : 描述 Table 的資訊 ( 顯示跟上面的命令一樣，可以用這條命令就好 )</p>
+<p>  <img src="https://i.imgur.com/sxToAEH.png" alt></p>
+</li>
+<li><p><code>drop table &lt;table name&gt;</code> : 刪除 Table</p>
+</li>
+</ul>
+<h3 id="Data-Insert"><a href="#Data-Insert" class="headerlink" title="Data Insert"></a>Data Insert</h3><h4 id="如何插入資料"><a href="#如何插入資料" class="headerlink" title="如何插入資料"></a>如何插入資料</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> &lt;table_name&gt;(&lt;column1_name&gt;, &lt;column2_name&gt;) </span><br><span class="line"><span class="keyword">values</span>(&lt;column1_data&gt;, &lt;column2_data&gt;),</span><br><span class="line">      (&lt;column1_data&gt;, &lt;column2_data&gt;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="查看資料"><a href="#查看資料" class="headerlink" title="查看資料"></a>查看資料</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 Table 裡的所有資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;column_name&gt; <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 Table 裡某個 column 的所有資料</li>
+</ul>
+<h4 id="創建特殊要求的-Table"><a href="#創建特殊要求的-Table" class="headerlink" title="創建特殊要求的 Table"></a>創建特殊要求的 Table</h4><ul>
+<li><p>NULL 和 NOT NULL :</p>
+<ul>
+<li>NULL 默認為 YES</li>
+<li>創建時 <code>&lt;column name&gt; &lt;data type&gt; NOT NULL</code>，NULL 就會變 NO</li>
+<li><strong>插入資料時，NULL 為 NO 的資料不能為空</strong></li>
+</ul>
+</li>
+<li><p>Default Value :</p>
+<ul>
+<li>Default 默認為 NULL</li>
+<li>創建時 <code>&lt;column name&gt; DEFAULT &lt;value&gt;</code></li>
+</ul>
+</li>
+<li><p>PRIMARY KEY :</p>
+<ul>
+<li>唯一性，不能重複，不可 NULL</li>
+<li>創建時 <code>&lt;column name&gt; &lt;data type&gt; PRIMARY KEY</code></li>
+<li>如果需要兩個以上 PRIMARY KEY，可以設置聯合 PRIMARY KEY</li>
+<li>聯合 PRIMARY KEY : <code>PRIMARY KEY(&lt;column1 name&gt;, &lt;column2 name&gt;)</code></li>
+</ul>
+</li>
+<li><p>UNIQUE :</p>
+<ul>
+<li>唯一性，不能重複，可 NULL</li>
+<li>創建時 <code>&lt;column name&gt; &lt;data type&gt; UNIQUE</code></li>
+</ul>
+</li>
+<li><p>AUTO_INCREMENT :</p>
+<ul>
+<li>設置時，必須同時是個 Key</li>
+<li>創建時 <code>&lt;column name&gt; &lt;data type&gt; &lt;PRIMARY KEY or UNIQUE&gt; AUTO_INCREMENT</code> ，常用在 ID 之類，不填值時會累加</li>
+</ul>
+</li>
+</ul>
+<h3 id="CRUD-基本的增刪改查"><a href="#CRUD-基本的增刪改查" class="headerlink" title="CRUD 基本的增刪改查"></a>CRUD 基本的增刪改查</h3><ul>
+<li>Create</li>
+<li>Read</li>
+<li>Update</li>
+<li>Delete</li>
+</ul>
+<h4 id="使用-SQL-文件-Create"><a href="#使用-SQL-文件-Create" class="headerlink" title="使用 SQL 文件 Create"></a>使用 SQL 文件 Create</h4><ul>
+<li>創建一個使用 SQL 語法的文件 <code>test.sql</code></li>
+<li><code>source &lt;SQL 文件路徑 EX : /Users/user/SQL-training/test.sql&gt;;</code> 注意分隔要 <code>/</code></li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> person</span><br><span class="line">(</span><br><span class="line">    <span class="keyword">name</span> <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    phone <span class="built_in">VARCHAR</span>(<span class="number">20</span>),</span><br><span class="line">    age <span class="built_in">INT</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>IF NOT EXISTS</code> 可以在創建 Table 時，查看 Table 是否存在，不存在就創建，存在則否</li>
+</ul>
+<h4 id="Read"><a href="#Read" class="headerlink" title="Read"></a>Read</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;column_name&gt; <span class="keyword">as</span> &lt;別名&gt; <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>column 的名稱會以別名顯示</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">WHERE</span> &lt;column1_name&gt; = <span class="string">"想找到的資料"</span> &lt;<span class="keyword">AND</span> 或 <span class="keyword">OR</span>&gt; &lt;<span class="keyword">NOT</span>&gt; &lt;column2_name&gt; = <span class="string">"想找到的資料"</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>WHERE 像是 if，可以過濾</li>
+</ul>
+<h4 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> &lt;table_name&gt; <span class="keyword">set</span> &lt;column_name&gt; = <span class="string">"想改成這個資料"</span> <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>通常會加上 WHERE 來過濾要改的資料</p>
+</li>
+<li><p>較安全步驟為</p>
+<ol>
+<li>先 SELECT + WHERE 找出想改的資料</li>
+<li>再來 UPDATE + 剛剛的 WHERE 來更動</li>
+</ol>
+</li>
+</ul>
+<h4 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">WHERE</span> ...;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>跟 UPDATE 一樣通常加上 WHERE 過濾</li>
+<li>跟 UPDATE 一樣，先 SELECT + WHERE 較安全</li>
+</ul>
+<h3 id="SQL-字串相關處理方法"><a href="#SQL-字串相關處理方法" class="headerlink" title="SQL 字串相關處理方法"></a>SQL 字串相關處理方法</h3><h4 id="拼接-CONCAT"><a href="#拼接-CONCAT" class="headerlink" title="拼接 CONCAT"></a>拼接 CONCAT</h4><ul>
+<li><p>CONCAT :</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(&lt;column1_name&gt;, &lt;column2_name&gt;) <span class="keyword">as</span> &lt;別名&gt; <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>輸出會是 <code>&lt;column1_name&gt;&lt;column2_name&gt;</code></li>
+</ul>
+</li>
+<li><p>CONCAT_WS :</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT_WS</span>(<span class="string">"&lt;間格符&gt;"</span>, &lt;column1_name&gt;, &lt;column2_name&gt;, &lt;column3_name&gt;) <span class="keyword">as</span> &lt;別名&gt; <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>輸出會是 <code>&lt;column1_name&gt;&lt;間格符&gt;&lt;column2_name&gt;&lt;間格符&gt;&lt;column2_name&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="剪輯-SUBSTRING、REPLACE"><a href="#剪輯-SUBSTRING、REPLACE" class="headerlink" title="剪輯 SUBSTRING、REPLACE"></a>剪輯 SUBSTRING、REPLACE</h4><ul>
+<li><p>SUBSTRING :</p>
+<ul>
+<li><code>SUBSTRING(&quot;Hello World&quot;, 7)</code> : 從前面數，輸出為 <code>World</code></li>
+<li><code>SUBSTRING(&quot;Hello World&quot;, -3)</code> : 從後面數，輸出為 <code>rld</code></li>
+<li><code>SUBSTRING(&quot;Hello World&quot;, 1, 4)</code> : 第 n 個到第 m 個，輸出為 <code>Hell</code></li>
+</ul>
+</li>
+<li><p>REPLACE :</p>
+<ul>
+<li><code>REPLACE(&quot;Hello World&quot;, &quot;World&quot;, &quot;MySQL&quot;)</code> : 替換，輸出為 <code>Hello MySQL</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="反轉-REVERSE"><a href="#反轉-REVERSE" class="headerlink" title="反轉 REVERSE"></a>反轉 REVERSE</h4><ul>
+<li><code>REVERSE(&quot;Hello World&quot;)</code> : 反轉，輸出為 <code>dlroW olleH</code></li>
+</ul>
+<h4 id="長度-CHAR-LENGTH"><a href="#長度-CHAR-LENGTH" class="headerlink" title="長度 CHAR_LENGTH"></a>長度 CHAR_LENGTH</h4><ul>
+<li><code>CHAR_LENGTH(&quot;Hello World&quot;)</code> : 字串長度，輸出為 <code>11</code></li>
+</ul>
+<h4 id="大小寫-LOWER、UPPER"><a href="#大小寫-LOWER、UPPER" class="headerlink" title="大小寫 LOWER、UPPER"></a>大小寫 LOWER、UPPER</h4><ul>
+<li><code>LOWER(&quot;Hello World&quot;)</code> : 轉小寫</li>
+<li><code>UPPER(&quot;Hello World&quot;)</code> : 轉大寫</li>
+<li>數字符號都不會變</li>
+</ul>
+<h3 id="SELECT-進階"><a href="#SELECT-進階" class="headerlink" title="SELECT 進階"></a>SELECT 進階</h3><h4 id="按規則排序-ORDER-BY"><a href="#按規則排序-ORDER-BY" class="headerlink" title="按規則排序 ORDER BY"></a>按規則排序 ORDER BY</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;column_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>會按照 <code>column_name</code> 進行升序排序</li>
+<li>如要進行降序排序 : <code>ORDER BY &lt;column_name&gt; desc</code></li>
+<li>字母、日期也可排序</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;column1_name&gt;, &lt;column2_name&gt;, &lt;column3_name&gt; <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="number">3</span>, <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按照 <code>column3_name</code> 與 <code>column1_name</code> 進行排序</li>
+<li>如果 <code>column3_name</code> 相同才按照 <code>column1_name</code> 排序</li>
+</ul>
+<h4 id="限制搜尋資料顯示的資料數目-LIMIT"><a href="#限制搜尋資料顯示的資料數目-LIMIT" class="headerlink" title="限制搜尋資料顯示的資料數目 LIMIT"></a>限制搜尋資料顯示的資料數目 LIMIT</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;column_name&gt; <span class="keyword">LIMIT</span> <span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>顯示排序後前三個</li>
+<li><code>LIMIT 2, 4</code> : 顯示從 2 開始後 4 筆資料</li>
+<li><code>LIMIT 2, 18446744073709551615</code> : 顯示從 2 開始後的所有資料</li>
+</ul>
+<h4 id="模糊搜尋-LIKE"><a href="#模糊搜尋-LIKE" class="headerlink" title="模糊搜尋 LIKE"></a>模糊搜尋 LIKE</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">WHERE</span> &lt;column_name&gt; <span class="keyword">LIKE</span> <span class="string">"%i%"</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>顯示包含 <code>i</code> 的</li>
+<li><code>%</code> 代表任意字符</li>
+<li><code>_</code> 代表一個任意字符</li>
+<li>如果要找的資料包含 <code>%</code> 或 <code>_</code>，可以寫成 <code>\%</code> 和 <code>\_</code></li>
+<li>SQL 裡搜尋是不區分大小寫的，如要區分需要額外設置</li>
+</ul>
+<h3 id="資料聚合處理"><a href="#資料聚合處理" class="headerlink" title="資料聚合處理"></a>資料聚合處理</h3><h4 id="計數-COUNT"><a href="#計數-COUNT" class="headerlink" title="計數 COUNT"></a>計數 COUNT</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*) <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>計算資料數量</li>
+</ul>
+<h4 id="統計唯一值-DISTINCT"><a href="#統計唯一值-DISTINCT" class="headerlink" title="統計唯一值 DISTINCT"></a>統計唯一值 DISTINCT</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> &lt;column_name&gt; <span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>將 <code>column_name</code> 內重複的資料去除後顯示出來</li>
+</ul>
+<h4 id="資料整合-GROUP-BY"><a href="#資料整合-GROUP-BY" class="headerlink" title="資料整合 GROUP BY"></a>資料整合 GROUP BY</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(&lt;column_name&gt;) <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;想合併的 column_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>將 <code>想合併的 column_name</code> 分組後算出每組 <code>column_name</code> 的資料數量</li>
+</ul>
+<h4 id="最大值與最小值-MAX、MIN"><a href="#最大值與最小值-MAX、MIN" class="headerlink" title="最大值與最小值 MAX、MIN"></a>最大值與最小值 MAX、MIN</h4><ul>
+<li><code>MAX(&lt;column_name&gt;)</code> : <code>column_name</code> 的最大值</li>
+<li><code>MIN(&lt;column_name&gt;)</code> : <code>column_name</code> 的最小值</li>
+</ul>
+<h4 id="和與平均值-SUM、AVG"><a href="#和與平均值-SUM、AVG" class="headerlink" title="和與平均值 SUM、AVG"></a>和與平均值 SUM、AVG</h4><ul>
+<li><code>SUM(&lt;column_name&gt;)</code> : <code>column_name</code> 的和</li>
+<li><code>AVG(&lt;column_name&gt;)</code> : <code>column_name</code> 的平均值</li>
+</ul>
+<h4 id="HAVING"><a href="#HAVING" class="headerlink" title="HAVING"></a>HAVING</h4><p><code>WHERE</code> 只能對原始資料過濾，假如要對 <code>GROUP BY</code> 之後的資料過濾就要用到 <code>HAVING</code></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(&lt;column_name&gt;) <span class="keyword">from</span> &lt;table_name&gt; <span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;想合併的 column_name&gt; <span class="keyword">HAVING</span> &lt;column1_name&gt; = <span class="string">"想找到的資料"</span>;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Data-Type-詳細介紹"><a href="#Data-Type-詳細介紹" class="headerlink" title="Data Type 詳細介紹"></a>Data Type 詳細介紹</h3><h4 id="數值類型"><a href="#數值類型" class="headerlink" title="數值類型"></a>數值類型</h4><ul>
+<li><p>整數 ( Integer ) - 準確的</p>
+<ul>
+<li><p>標準類型 :</p>
+<ul>
+<li>INTEGER ( INT )</li>
+<li>SMALLINT</li>
+</ul>
+</li>
+<li><p>擴充類型 :</p>
+<ul>
+<li>TINYINT</li>
+<li>MEDIUMINT</li>
+<li>BIGINT</li>
+</ul>
+</li>
+<li><p>後面加 <code>UNSIGNED</code> 表示為無負號</p>
+</li>
+</ul>
+</li>
+<li><p>定點數 ( Fixed-Point ) - 準確的</p>
+<ul>
+<li><p>DECIMAL ( 用於金錢 )</p>
+<ul>
+<li><p><code>DECIMAL(m, d)</code> : </p>
+<ul>
+<li>總共 m 位，小數點後 d 位</li>
+<li>小數點後不足補 0，多的四捨五入</li>
+<li>可負數，不算位數</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>NUMERIC : 跟 DECIMAL 是一樣的</p>
+</li>
+</ul>
+</li>
+<li><p>浮點數 ( Floating-Point ) - 不準確的</p>
+<ul>
+<li><p>FLOAT</p>
+<ul>
+<li><p><code>FLOAT(m, d)</code> : </p>
+<ul>
+<li>總共 m 位，小數點後 d 位</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DOUBLE : 用法跟 FLOAT 是一樣的，差別在於 DOUBLE 可存字節較多</p>
+</li>
+</ul>
+</li>
+<li><p>位 ( Bit-Value )</p>
+<ul>
+<li><p>BIT</p>
+<ul>
+<li><p><code>BIT(m)</code> : </p>
+<ul>
+<li>總共 m 位</li>
+<li>m 最小 1，最大 64，默認為 1</li>
+</ul>
+</li>
+<li><p>插入方法 :</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> &lt;table_name&gt; <span class="keyword">values</span>(b<span class="string">'1010'</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>純數字為十進位</li>
+<li><code>b&#39;1010&#39;</code> 為二進位</li>
+</ul>
+</li>
+<li><p>顯示方法 :</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;column_name&gt;+<span class="number">0</span> <span class="keyword">from</span> &lt;table_name&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&lt;column_name&gt;+0</code> : 顯示十進位數值</li>
+<li><code>bin(&lt;column_name&gt;+0)</code> : 顯示二進位數值</li>
+<li><code>oct(&lt;column_name&gt;+0)</code> : 顯示八進位數值</li>
+<li><code>hex(&lt;column_name&gt;+0)</code> : 顯示十六進位數值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="https://dev.mysql.com/doc/refman/5.7/en/numeric-types.html" target="_blank" rel="noopener">數值類型的官方文件</a></p>
+</li>
+</ul>
+<h4 id="時間類型"><a href="#時間類型" class="headerlink" title="時間類型"></a>時間類型</h4><ul>
+<li><p>DATE</p>
+<ul>
+<li>日期 ( YYYY-MM-DD )</li>
+<li>範圍 : <code>1000-01-01</code> ~ <code>9999-12-31</code></li>
+<li>可插入 INT 型 <code>20181001</code>，也可不需 <code>-</code> <code>&quot;20181001&quot;</code>，但不可缺少年月日</li>
+</ul>
+</li>
+<li><p>TIME</p>
+<ul>
+<li><p>時間 ( HH:MM:SS )</p>
+</li>
+<li><p>範圍 : <code>-838:59:59</code> ~ <code>838:59:59</code>，小時範圍那麼大的原因是，也可以表示時間差</p>
+</li>
+<li><p>插入規則同 DATE，但可缺少時分秒</p>
+<ul>
+<li><code>12:10</code> 為 <code>12:10:00</code></li>
+<li><code>1210</code> 為 <code>00:12:10</code></li>
+<li><code>10</code> 為 <code>00:00:10</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>YEAR</p>
+<ul>
+<li><p>年，為四個字符</p>
+</li>
+<li><p>範圍 : <code>1901</code> ~ <code>2155</code></p>
+</li>
+<li><p>插入兩位 INT :</p>
+<ul>
+<li><code>1</code> ~ <code>69</code> 為 <code>2001</code> ~ <code>2069</code></li>
+<li><code>70</code> ~ <code>99</code> 為 <code>1970</code> ~ <code>1999</code></li>
+<li><code>0</code> 為 <code>0000</code></li>
+</ul>
+</li>
+<li><p>插入兩位 STRING :</p>
+<ul>
+<li><code>&quot;0&quot;</code> ~ <code>&quot;69&quot;</code> 為 <code>2000</code> ~ <code>2069</code></li>
+<li><code>&quot;70&quot;</code> ~ <code>&quot;99&quot;</code> 為 <code>1970</code> ~ <code>1999</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>DATETIME</p>
+<ul>
+<li>日期 + 時間 ( YYYY-MM-DD HH:MM:SS )</li>
+<li>範圍 : <code>1000-01-01 00:00:00</code> ~ <code>9999-12-31 23:59:59</code></li>
+</ul>
+</li>
+<li><p>TIMESTAMP</p>
+<ul>
+<li><p>範圍 : <code>&quot;1970-01-01 00:00:01&quot; UTC</code> ~ <code>&quot;2038-01-19 03:14:07&quot; UTC</code></p>
+</li>
+<li><p>會隨著 timezone 改變</p>
+</li>
+<li><p>默認當前時間</p>
+</li>
+<li><p><code>SELECT NOW()</code> : 查看系統當前時間</p>
+</li>
+<li><p>以下兩條程式碼是相同功能的</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;table_name&gt;(&lt;column_name&gt; <span class="built_in">TIMESTAMP</span>)</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> &lt;table_name&gt;(&lt;column_name&gt; <span class="built_in">TIMESTAMP</span> <span class="keyword">DEFAULT</span> <span class="keyword">NOW</span>() <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="keyword">NOW</span>())</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>timezone</p>
+<ul>
+<li><code>show variables LIKE &quot;%time_zone%&quot;</code> : 查看包含 time_zone 字串的變量</li>
+<li><code>SET time_zone = &quot;-12:00&quot;</code> : 更改 time_zone，根據 UTC 時間減 12 小時</li>
+<li><code>SET time_zone = &quot;system&quot;</code> : 更改 time_zone 為系統當前時區</li>
+<li>time_zone 也可用國家名稱下去設置</li>
+</ul>
+</li>
+<li><p><a href="https://dev.mysql.com/doc/refman/5.7/en/date-and-time-type-overview.html" target="_blank" rel="noopener">時間類型的官方文件</a></p>
+</li>
+<li><p><a href="https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html" target="_blank" rel="noopener">時間與日期函式</a></p>
+</li>
+</ul>
+<h4 id="字符串類型"><a href="#字符串類型" class="headerlink" title="字符串類型"></a>字符串類型</h4><ul>
+<li><p>CHAR 與 VARCHAR</p>
+<ul>
+<li><p>後面帶的數字代表字串長度</p>
+</li>
+<li><p>CHAR : 適用於固定長度</p>
+<ul>
+<li>較不省空間</li>
+</ul>
+</li>
+<li><p>VARCHAR : 適用於不固定長度</p>
+<ul>
+<li>更新效率較慢，不如 CHAR</li>
+<li>平常會多 1 bytes 儲存字串長度</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BINARY 與 VARBINARY</p>
+<ul>
+<li><p>後面帶的數字代表 bytes 長度</p>
+</li>
+<li><p>BINARY : 適用於固定長度</p>
+<ul>
+<li>較不省空間</li>
+<li>插入的字串不足會補上 <code>\0</code></li>
+</ul>
+</li>
+<li><p>VARBINARY : 適用於不固定長度</p>
+<ul>
+<li>更新效率較慢，不如 BINARY</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>BLOB 與 TEXT</p>
+<ul>
+<li>適用於儲存文章</li>
+<li>BLOB : 較大的 BINARY</li>
+<li>TEXT : 較大的 CHAR</li>
+<li><code>SET max_sort_length = n</code> : 設置此變量後，排序時只對前 n 個字符排序</li>
+</ul>
+</li>
+<li><p>ENUM</p>
+<ul>
+<li>給予特定字串選擇 <code>ENUM(&quot;F&quot;, &quot;M&quot;)</code></li>
+<li>類似單選</li>
+</ul>
+</li>
+<li><p>SET</p>
+<ul>
+<li>跟 ENUM 很像，也是一個 list</li>
+<li>但 SET 可以選擇一個集合</li>
+<li>類似複選</li>
+</ul>
+</li>
+<li><p><a href="https://dev.mysql.com/doc/refman/5.7/en/string-types.html" target="_blank" rel="noopener">字符串類型的官方文件</a></p>
+</li>
+</ul>
+<h4 id="對已經定義好的-Table-，更改-Column-的資料類型"><a href="#對已經定義好的-Table-，更改-Column-的資料類型" class="headerlink" title="對已經定義好的 Table ，更改 Column 的資料類型"></a>對已經定義好的 Table ，更改 Column 的資料類型</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> &lt;table_name&gt; <span class="keyword">MODIFY</span> &lt;column_name&gt; &lt;想更改成的資料類型&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>禁止 varchar 改成 int</li>
+<li>修改資料類型前一定要備份</li>
+</ul>
+<h3 id="SQL-邏輯操作符"><a href="#SQL-邏輯操作符" class="headerlink" title="SQL 邏輯操作符"></a>SQL 邏輯操作符</h3><h4 id="EQUAL-與-NOT-EQUAL"><a href="#EQUAL-與-NOT-EQUAL" class="headerlink" title="EQUAL 與 NOT EQUAL"></a>EQUAL 與 NOT EQUAL</h4><ul>
+<li>EQUAL : <code>&lt;column_name&gt; = 3000</code></li>
+<li>NOT EQUAL : <code>&lt;column_name&gt; != 3000</code> 或 <code>NOT &lt;column_name&gt; = 3000</code></li>
+</ul>
+<h4 id="LIKE-與-NOT-LIKE"><a href="#LIKE-與-NOT-LIKE" class="headerlink" title="LIKE 與 NOT LIKE"></a>LIKE 與 NOT LIKE</h4><ul>
+<li>模糊搜尋</li>
+</ul>
+<h4 id="GREATER-THAN-與-LESS-THAN"><a href="#GREATER-THAN-與-LESS-THAN" class="headerlink" title="GREATER THAN 與 LESS THAN"></a>GREATER THAN 與 LESS THAN</h4><ul>
+<li>GREATER THAN : <code>&lt;column_name&gt; &gt; 3000</code></li>
+<li>LESS THAN : <code>&lt;column_name&gt; &lt; 3000</code></li>
+<li>包含 : <code>&gt;=</code>、<code>&lt;=</code></li>
+</ul>
+<h4 id="AND-與-OR"><a href="#AND-與-OR" class="headerlink" title="AND 與 OR"></a>AND 與 OR</h4><ul>
+<li>AND : 條件都要滿足</li>
+<li>OR : 條件只要滿足一項</li>
+</ul>
+<h4 id="BETWEEN"><a href="#BETWEEN" class="headerlink" title="BETWEEN"></a>BETWEEN</h4><ul>
+<li><code>&lt;column_name&gt; BETWEEN 1000 and 3000</code></li>
+</ul>
+<h4 id="IN-與-NOT-IN"><a href="#IN-與-NOT-IN" class="headerlink" title="IN 與 NOT IN"></a>IN 與 NOT IN</h4><ul>
+<li>搜尋 list 裡面有的值</li>
+<li>IN : <code>&lt;column_name&gt; IN (5000, 6000, 7000, 8000)</code></li>
+<li>NOT IN : <code>&lt;column_name&gt; NOT IN (5000, 6000, 7000, 8000)</code></li>
+</ul>
+<h4 id="CASE-STATEMENT"><a href="#CASE-STATEMENT" class="headerlink" title="CASE STATEMENT"></a>CASE STATEMENT</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> &lt;column_name&gt;, </span><br><span class="line">    <span class="keyword">case</span></span><br><span class="line">        <span class="keyword">when</span> &lt;column_name&gt; &gt;= <span class="number">7000</span> <span class="keyword">then</span> <span class="string">"high"</span></span><br><span class="line">        <span class="keyword">else</span> <span class="string">"low"</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">as</span> &lt;別名&gt;</span><br><span class="line"><span class="keyword">from</span> &lt;table_name&gt;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL-內建函式"><a href="#MySQL-內建函式" class="headerlink" title="MySQL 內建函式"></a>MySQL 內建函式</h3><h4 id="數值處理函式"><a href="#數值處理函式" class="headerlink" title="數值處理函式"></a>數值處理函式</h4><ul>
+<li>CEIL</li>
+<li>FLOOR</li>
+<li>DIV : 整數除法</li>
+<li>MOD</li>
+<li>POWER</li>
+<li>ROUND :四捨五入</li>
+</ul>
+<h4 id="日期時間函式"><a href="#日期時間函式" class="headerlink" title="日期時間函式"></a>日期時間函式</h4><ul>
+<li>NOW</li>
+<li>CURDATE : 當前日期</li>
+<li>CURTIME : 當前時間</li>
+<li>DATE_FORMAT</li>
+<li>DATE_ADD : 時間加減</li>
+<li>DATEDIFF : 求時間差</li>
+</ul>
+<h4 id="字串處理函式"><a href="#字串處理函式" class="headerlink" title="字串處理函式"></a>字串處理函式</h4><ul>
+<li>CONCAT</li>
+<li>CONCAT_WS</li>
+<li>LOWER</li>
+<li>UPPER</li>
+<li>LEFT : 擷取頭</li>
+<li>RIGHT : 擷取尾</li>
+<li>LENGTH</li>
+<li>LTRIM : 去頭</li>
+<li>RTRIM : 去尾</li>
+<li>TRIM : 去頭去尾</li>
+<li>REPLACE</li>
+<li>SUBSTRING</li>
+</ul>
+<h4 id="信息函式"><a href="#信息函式" class="headerlink" title="信息函式"></a>信息函式</h4><ul>
+<li>CONNECTION_ID : 當前與 MySQL 連線的 ID</li>
+<li>DATABASE : 當前使用的 database</li>
+<li>LAST_INSERT_ID : 最後插入資料的資料 ID</li>
+<li>USER : 當前用戶</li>
+<li>VERSION</li>
+</ul>
+<h4 id="聚合函式"><a href="#聚合函式" class="headerlink" title="聚合函式"></a>聚合函式</h4><ul>
+<li>AVG</li>
+<li>COUNT</li>
+<li>MAX</li>
+<li>MIN</li>
+<li>SUM</li>
+</ul>
+<h4 id="加密函式"><a href="#加密函式" class="headerlink" title="加密函式"></a>加密函式</h4><ul>
+<li>MD5 : 用來存取密碼</li>
+<li>PASSSWORD : 通常用於修改 MySQL 密碼 <code>SET PASSSWORD = PASSSWORD(&#39;ABC123&#39;)</code></li>
+</ul>
+<h3 id="關聯-一對多"><a href="#關聯-一對多" class="headerlink" title="關聯 ( 一對多 )"></a>關聯 ( 一對多 )</h3><h4 id="通過-ID-關聯兩個-Table"><a href="#通過-ID-關聯兩個-Table" class="headerlink" title="通過 ID 關聯兩個 Table"></a>通過 ID 關聯兩個 Table</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customers(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    first_name <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</span><br><span class="line">    last_name <span class="built_in">VARCHAR</span>(<span class="number">100</span>),</span><br><span class="line">    email <span class="built_in">VARCHAR</span>(<span class="number">100</span>) </span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customers(first_name, last_name, email) <span class="keyword">VALUES</span></span><br><span class="line">    (<span class="string">'Robin'</span>, <span class="string">'Jackman'</span>, <span class="string">'roj@gmail.com'</span>),</span><br><span class="line">    (<span class="string">'Taylor'</span>, <span class="string">'Edward'</span>, <span class="string">'taed@gmail.com'</span>),</span><br><span class="line">    (<span class="string">'Vivian'</span>, <span class="string">'Dickens'</span>, <span class="string">'vidi@gmail.com'</span>),</span><br><span class="line">    (<span class="string">'Harley'</span>, <span class="string">'Gilbert'</span>, <span class="string">'hgi@gmail.com'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> orders(</span><br><span class="line">    <span class="keyword">id</span> <span class="built_in">INT</span> AUTO_INCREMENT PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">    order_date <span class="built_in">DATE</span>,</span><br><span class="line">    amount <span class="built_in">DECIMAL</span>(<span class="number">8</span>,<span class="number">2</span>),</span><br><span class="line">    customer_id <span class="built_in">INT</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> orders(order_date, amount, customer_id) <span class="keyword">VALUES</span></span><br><span class="line">    (<span class="string">'2001-10-12'</span>, <span class="number">99.12</span>, <span class="number">1</span>),</span><br><span class="line">    (<span class="string">'2001-09-21'</span>, <span class="number">110.99</span>, <span class="number">2</span>),</span><br><span class="line">    (<span class="string">'2001-10-13'</span>, <span class="number">12.19</span>, <span class="number">1</span>),</span><br><span class="line">    (<span class="string">'2001-11-29'</span>, <span class="number">88.09</span>, <span class="number">3</span>),</span><br><span class="line">    (<span class="string">'2001-11-11'</span>, <span class="number">205.01</span>, <span class="number">4</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>這邊有兩張 Table，客戶訊息與訂單訊息，訂單訊息以 <code>customer_id</code> 與客戶訊息的 <code>id</code> 做關聯</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> orders <span class="keyword">WHERE</span> customer_id = (<span class="keyword">SELECT</span> <span class="keyword">id</span> <span class="keyword">from</span> customers <span class="keyword">WHERE</span> email = <span class="string">"roj@gmail.com"</span>);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查找 Robin Jackman 的訂單</li>
+</ul>
+<h4 id="使用-FOREIGN-KEY-約束關聯字段"><a href="#使用-FOREIGN-KEY-約束關聯字段" class="headerlink" title="使用 FOREIGN KEY 約束關聯字段"></a>使用 FOREIGN KEY 約束關聯字段</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FOREIGN KEY (customer_id) REFERRENCES customers(id)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在創建 Table 時，加上這段可以約束訂單訊息的 <code>customer_id</code> 與客戶訊息的 <code>id</code></li>
+</ul>
+<h4 id="關聯表的操作"><a href="#關聯表的操作" class="headerlink" title="關聯表的操作"></a>關聯表的操作</h4><p><strong>使用 JOIN 合併關聯表</strong></p>
+<p><img src="https://i.imgur.com/VgX1FUb.png" alt></p>
+<ul>
+<li>INNER JOIN : 顯示出有關聯的所有資料 ( 沒關聯的不會顯示 )</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> customers <span class="keyword">INNER</span> <span class="keyword">JOIN</span> orders <span class="keyword">WHERE</span> customers.id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+
+<p><code>WHERE</code> 可改成 <code>ON</code></p>
+<ul>
+<li>LEFT JOIN : 顯示出所有 SELECT 的 Table 以及他們的關聯資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> customers <span class="keyword">LEFT</span> <span class="keyword">JOIN</span> orders <span class="keyword">WHERE</span> customers.id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+
+<p><code>IFNULL(SUM(amount), 0)</code> : 如果值為 NULL 則顯示 0</p>
+<ul>
+<li>RIGHT JOIN : 顯示出所有 JOIN 的 Table 以及他們的關聯資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">from</span> customers <span class="keyword">RIGHT</span> <span class="keyword">JOIN</span> orders <span class="keyword">WHERE</span> customers.id = orders.customer_id;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>ON DELETE : 在刪除被參照的 Table 內資料時，也一起刪除其他 Table 參照此 Table 的相關資料</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ON <span class="keyword">DELETE</span> <span class="keyword">CASCADE</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在創建 Table 時，除了 FOREIGN KEY，另外加上這段</li>
+</ul>
+<h3 id="關聯-多對多"><a href="#關聯-多對多" class="headerlink" title="關聯 ( 多對多 )"></a>關聯 ( 多對多 )</h3><p><strong>兩張多對多的 Table 會有一張 Table 把他們關聯起來</strong></p>
+<p><img src="https://i.imgur.com/EbgXtpe.png" alt></p>
+<ul>
+<li>books 與 reviewer 為多對多</li>
+</ul>
+<h3 id="MySQL-存入中文，編碼問題"><a href="#MySQL-存入中文，編碼問題" class="headerlink" title="MySQL 存入中文，編碼問題"></a>MySQL 存入中文，編碼問題</h3><h4 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h4><ul>
+<li>指令同下</li>
+<li>但因為 <code>MySQL 5.7 Command Line Client</code> 不支援中文，所以必須以其他方式插入中文資料</li>
+<li><code>MySQL Workbench</code>、<code>VS code</code> 都可以</li>
+</ul>
+<h4 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">database</span> &lt;database_name&gt; <span class="keyword">DEFAULT</span> <span class="keyword">CHARSET</span> = utf8 <span class="keyword">COLLATE</span> = utf8_general_ci;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>創建資料庫時修改默認編碼</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">database</span> &lt;database_name&gt; <span class="keyword">CHARSET</span> = utf8 <span class="keyword">COLLATE</span> = utf8_general_ci;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>已存在的 database 修改默認編碼</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">table</span> &lt;table_name&gt; <span class="keyword">CONVERT</span> <span class="keyword">TO</span> <span class="built_in">CHARACTER</span> <span class="keyword">SET</span> utf8;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>若是修改了已存在的 database，其本身已存在 table，必須一併更改默認編碼</li>
+</ul>
+<h6 id="tags-筆記-程式語言-SQL-資料庫-MySQL"><a href="#tags-筆記-程式語言-SQL-資料庫-MySQL" class="headerlink" title="tags: 筆記 程式語言 SQL 資料庫 MySQL"></a>tags: <code>筆記</code> <code>程式語言</code> <code>SQL</code> <code>資料庫</code> <code>MySQL</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/">https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/MySQL/">MySQL    </a><a class="post-meta__tags" href="/tags/SQL/">SQL    </a><a class="post-meta__tags" href="/tags/資料庫/">資料庫    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/06/26/Install-MySQL-code-not-working/"><img class="next_cover lozad" data-src="/img/problem.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>問題 - 安裝 MySQL 後環境變數被清空了，導致終端機快速開啟 VS code 失效了</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/23/Python-basic/" title="筆記 - Python 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Python 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/20/JQuery/" title="函式庫 - JQuery"><img class="relatedPosts_cover lozad" data-src="/img/library.jpg"><div class="relatedPosts_title">函式庫 - JQuery</div></a></div><div class="relatedPosts_item"><a href="/2019/06/26/Install-MySQL-code-not-working/" title="問題 - 安裝 MySQL 後環境變數被清空了，導致終端機快速開啟 VS code 失效了"><img class="relatedPosts_cover lozad" data-src="/img/problem.jpg"><div class="relatedPosts_title">問題 - 安裝 MySQL 後環境變數被清空了，導致終端機快速開啟 VS code 失效了</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>
