@@ -2,16 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/07/01/BeautifulSoup-save-to-MySQL-problem/</loc>
     
-    <lastmod>2019-06-28T05:19:04.375Z</lastmod>
+    <lastmod>2019-07-01T07:24:34.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/01/Python-connect-to-MySQL/</loc>
+    
+    <lastmod>2019-07-01T07:21:57.802Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/06/23/Python-web-crawler/</loc>
+    
+    <lastmod>2019-07-01T06:16:37.848Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://kennyliblog.nctu.me/2019/06/26/Install-MySQL-code-not-working/</loc>
     
-    <lastmod>2019-06-26T01:48:02.461Z</lastmod>
+    <lastmod>2019-07-01T03:09:30.976Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/06/28/MySQL-basic/</loc>
+    
+    <lastmod>2019-06-28T05:19:04.375Z</lastmod>
     
   </url>
   
@@ -38,13 +59,6 @@
   
   <url>
     <loc>https://kennyliblog.nctu.me/2019/06/23/Python-basic/</loc>
-    
-    <lastmod>2019-06-24T06:20:14.155Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/23/Python-web-crawler/</loc>
     
     <lastmod>2019-06-24T06:20:14.155Z</lastmod>
     
