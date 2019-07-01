@@ -5,6 +5,7 @@ tags:
   - 實作
   - Python
   - 網路爬蟲
+  - BeautifulSoup
 categories:
   - 實作
 keywords:
@@ -67,4 +68,4 @@ for title in titles:
         print(title.a.string)
 ```
 
-###### tags: `實作` `Python` `網路爬蟲`
+###### tags: `實作` `Python` `網路爬蟲` `BeautifulSoup`
