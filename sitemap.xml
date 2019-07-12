@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
+    
+    <lastmod>2019-07-12T01:03:41.428Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Octave-basic/</loc>
+    
+    <lastmod>2019-07-12T01:02:23.635Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/01/BeautifulSoup-save-to-MySQL-problem/</loc>
     
     <lastmod>2019-07-01T07:24:34.904Z</lastmod>
