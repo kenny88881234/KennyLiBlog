@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Csharp-use-global-variable/</loc>
+    
+    <lastmod>2019-07-12T08:51:39.798Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
     
     <lastmod>2019-07-12T01:03:41.428Z</lastmod>
