@@ -12,7 +12,7 @@ description:
 top_img: /img/note.jpg
 cover: /img/note.jpg
 ---
-# [筆記] 機器學習 : 基礎與線性回歸
+# [筆記] 機器學習 基礎與線性回歸
 
 ### 定義 :
  
@@ -68,11 +68,15 @@ P.S.下載任何版本都可以，但不要下載 `Octave 4.0.0`，此版本有�
 ```Octave=
 function J = costFunctionJ(X, y, theta)
 
-m = size(X,1);
+m = length(y);
+J = 0
+
 predictions = X * theta;
 sqrErrors = (predictions - y).^2;
 
 J = 1 / (2 * m) * sum(sqrErrors);
+
+end
 ```
 
 * 在 Octave 上的代價函數函式
@@ -99,6 +103,26 @@ J = 1 / (2 * m) * sum(sqrErrors);
 ![](https://i.imgur.com/CmwvFgc.png)
 
 * 錯誤的算法，沒有同步更新
+
+```Octave=
+function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
+
+m = length(y);
+J_history = zeros(num_iters, 1);
+
+for iter = 1:num_iters
+
+    delta = 1 / m * (X' * X * theta - X' * y);
+    theta = theta - alpha .* delta;
+
+    J_history(iter) = computeCost(X, y, theta);
+
+end
+
+end
+```
+
+* 在 Octave 上的梯度下降函式
 
 **Learning Rate α**
 
@@ -141,6 +165,28 @@ J = 1 / (2 * m) * sum(sqrErrors);
 * `sᵢ` : 特徵縮放，通常使用數值範圍
 * `μᵢ` : 均值歸一化，通常使用數值的平均
 
+```Octave=
+function [X_norm, mu, sigma] = featureNormalize(X)
+
+X_norm = X;
+mu = zeros(1, size(X, 2));
+sigma = zeros(1, size(X, 2));      
+
+mu = mean(X);
+sigma = std(X);
+
+for i = 1:size(X, 2)
+
+    X_mu = X(:, i) - mu(i);
+    X_norm(:, i) = X_mu ./ sigma(i);
+
+end
+
+end
+```
+
+* 在 Octave 上的特徵縮放與均值歸一化函式
+
 #### 多項式回歸 ( Polynomial Regression )
 
 * 我們可以結合多種有關的特徵，產生一個新的特徵，例如 : 房子長、寬結合成房子面積
@@ -153,6 +199,18 @@ y = 各結果
 
 * 算式 : `(XᵀX)⁻¹Xᵀy`
 * Octave : `pinv(X'*X)*X'*y`
+
+```Octave=
+function [theta] = normalEqn(X, y)
+
+theta = zeros(size(X, 2), 1);
+
+theta = pinv(X' * X) * X' * y
+
+end
+```
+
+* 在 Octave 上的正規方程函式
 
 在 Octave 裡我們通常用 `pinv` 而不是 `inv`，因為使用 `pinv` 就算 `XᵀX` 為不可逆，還是會給予 Θ 的值
 

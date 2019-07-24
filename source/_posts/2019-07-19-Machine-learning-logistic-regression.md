@@ -36,6 +36,17 @@ cover: /img/note.jpg
     * `hθ(x) = P(y=1 | x;θ) = 1 − P(y=0 | x;θ)`
     * `P(y=0 | x;θ) + P(y=1 | x;θ) = 1`
 
+```Octave=
+function g = sigmoid(z)
+
+g = zeros(size(z));
+g = 1 ./ (1 + e .^ -z);
+
+end
+```
+
+* 在 Octave 上的邏輯函數函式
+
 #### 決策邊界 ( Decision Boundary )
 
 * 為了得到 0 與 1，按此轉換 :
@@ -84,6 +95,46 @@ cover: /img/note.jpg
 
 * 與線性回歸的算法相同，一樣需要同步更新 `θ` 的所有值
 
+```Octave=
+function [J, grad] = costFunction(theta, X, y)
+
+m = length(y);
+J = 0;
+grad = zeros(size(theta));
+
+h = sigmoid(X * theta);
+
+predictions = - y' * log(h);
+con_predictions = (1 - y)' * log(1 - h);
+
+J = (1 / m) * (predictions - con_predictions);
+
+grad = (1 / m) * X' * (h - y);
+
+end
+```
+
+* 在 Octave 上的代價函數 + 梯度下降 ( 應用於邏輯函數 ) 函式
+
+#### 預測
+
+通常訓練出 `θ` 後，帶入要預測的數值，輸出大於等於 0.5，預測為 1，反之為 0
+
+* 與線性回歸的算法相同，一樣需要同步更新 `θ` 的所有值
+
+```Octave=
+function p = predict(theta, X)
+
+m = size(X, 1);
+p = zeros(m, 1);
+
+p = sigmoid(X * theta) >= 0.5;
+
+end
+```
+
+* 在 Octave 上的預測函式
+
 #### 高級優化算法
 
 * Conjugate gradient
@@ -100,7 +151,7 @@ cover: /img/note.jpg
 
         * 較為複雜
 
-```=
+```Octave=
 function [jVal, gradient] = costFunction(theta)
   jVal = [...code to compute J(theta)...];
   gradient = [...code to compute derivative of J(theta)...];
@@ -109,7 +160,7 @@ end
 
 * 代價函數的函式程式碼
 
-```=
+```Octave=
 options = optimset('GradObj', 'on', 'MaxIter', 100);
 initialTheta = zeros(2,1);
    [optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
