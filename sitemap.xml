@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/24/Machine-learning-overfitting-problem/</loc>
+    
+    <lastmod>2019-07-24T01:18:23.702Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/19/Machine-learning-logistic-regression/</loc>
+    
+    <lastmod>2019-07-24T01:15:06.614Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
+    
+    <lastmod>2019-07-24T01:14:32.592Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/22/Golang-basic/</loc>
     
     <lastmod>2019-07-22T08:18:25.986Z</lastmod>
@@ -9,23 +30,9 @@
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/07/19/Machine-learning-logistic-regression/</loc>
-    
-    <lastmod>2019-07-19T01:39:48.236Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/12/Csharp-use-global-variable/</loc>
     
     <lastmod>2019-07-12T08:51:39.798Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
-    
-    <lastmod>2019-07-12T01:03:41.428Z</lastmod>
     
   </url>
   
