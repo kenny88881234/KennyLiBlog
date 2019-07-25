@@ -17,7 +17,7 @@
   runtime_unit: 'days'
 
   
-}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#筆記-機器學習-基礎與線性回歸"><span class="toc-number">1.</span> <span class="toc-text">[筆記] 機器學習 基礎與線性回歸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定義"><span class="toc-number">1.0.1.</span> <span class="toc-text">定義 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Octave-for-Microsoft-Windows"><span class="toc-number">1.0.2.</span> <span class="toc-text">Octave for Microsoft Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervised-learing-監督式學習"><span class="toc-number">1.0.3.</span> <span class="toc-text">Supervised learing ( 監督式學習 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unsupervised-learing-非監督式學習"><span class="toc-number">1.0.4.</span> <span class="toc-text">Unsupervised learing ( 非監督式學習 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#線性回歸算法-Linear-Regression"><span class="toc-number">1.0.5.</span> <span class="toc-text">線性回歸算法 ( Linear Regression )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代價函數-Cost-Function"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">代價函數 ( Cost Function )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用梯度下降-Gradient-descent-將函數-J-最小化"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">使用梯度下降 ( Gradient descent ) 將函數 J 最小化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#結合梯度下降與代價函數"><span class="toc-number">1.0.5.3.</span> <span class="toc-text">結合梯度下降與代價函數</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多特徵線性回歸-Linear-Regression-with-multiple-variables"><span class="toc-number">1.0.5.4.</span> <span class="toc-text">多特徵線性回歸 ( Linear Regression with multiple variables)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用梯度下降解多特徵線性回歸"><span class="toc-number">1.0.5.5.</span> <span class="toc-text">使用梯度下降解多特徵線性回歸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特徵縮放-Feature-Scaling-與均值歸一化-Mean-Normalization"><span class="toc-number">1.0.5.6.</span> <span class="toc-text">特徵縮放 ( Feature Scaling ) 與均值歸一化 ( Mean Normalization )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多項式回歸-Polynomial-Regression"><span class="toc-number">1.0.5.7.</span> <span class="toc-text">多項式回歸 ( Polynomial Regression )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正規方程-Normal-Equation"><span class="toc-number">1.0.5.8.</span> <span class="toc-text">正規方程 ( Normal Equation )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度下降-vs-正規方程"><span class="toc-number">1.0.5.9.</span> <span class="toc-text">梯度下降 vs 正規方程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tags-筆記-機器學習-線性回歸"><span class="toc-number">1.0.5.9.0.1.</span> <span class="toc-text">tags: 筆記 機器學習 線性回歸</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/note.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Kenny's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">筆記 - 機器學習 基礎與線性回歸</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-07-12<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-07-24</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/筆記/">筆記</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="筆記-機器學習-基礎與線性回歸"><a href="#筆記-機器學習-基礎與線性回歸" class="headerlink" title="[筆記] 機器學習 基礎與線性回歸"></a>[筆記] 機器學習 基礎與線性回歸</h1><h3 id="定義"><a href="#定義" class="headerlink" title="定義 :"></a>定義 :</h3><blockquote>
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#筆記-機器學習-基礎與線性回歸"><span class="toc-number">1.</span> <span class="toc-text">[筆記] 機器學習 基礎與線性回歸</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定義"><span class="toc-number">1.0.1.</span> <span class="toc-text">定義 :</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Octave-for-Microsoft-Windows"><span class="toc-number">1.0.2.</span> <span class="toc-text">Octave for Microsoft Windows</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Supervised-learing-監督式學習"><span class="toc-number">1.0.3.</span> <span class="toc-text">Supervised learing ( 監督式學習 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unsupervised-learing-非監督式學習"><span class="toc-number">1.0.4.</span> <span class="toc-text">Unsupervised learing ( 非監督式學習 )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#線性回歸算法-Linear-Regression"><span class="toc-number">1.0.5.</span> <span class="toc-text">線性回歸算法 ( Linear Regression )</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代價函數-Cost-Function"><span class="toc-number">1.0.5.1.</span> <span class="toc-text">代價函數 ( Cost Function )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用梯度下降-Gradient-descent-將函數-J-最小化"><span class="toc-number">1.0.5.2.</span> <span class="toc-text">使用梯度下降 ( Gradient descent ) 將函數 J 最小化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#結合梯度下降與代價函數"><span class="toc-number">1.0.5.3.</span> <span class="toc-text">結合梯度下降與代價函數</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多特徵線性回歸-Linear-Regression-with-multiple-variables"><span class="toc-number">1.0.5.4.</span> <span class="toc-text">多特徵線性回歸 ( Linear Regression with multiple variables)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用梯度下降解多特徵線性回歸"><span class="toc-number">1.0.5.5.</span> <span class="toc-text">使用梯度下降解多特徵線性回歸</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#特徵縮放-Feature-Scaling-與均值歸一化-Mean-Normalization"><span class="toc-number">1.0.5.6.</span> <span class="toc-text">特徵縮放 ( Feature Scaling ) 與均值歸一化 ( Mean Normalization )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多項式回歸-Polynomial-Regression"><span class="toc-number">1.0.5.7.</span> <span class="toc-text">多項式回歸 ( Polynomial Regression )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正規方程-Normal-Equation"><span class="toc-number">1.0.5.8.</span> <span class="toc-text">正規方程 ( Normal Equation )</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#梯度下降-vs-正規方程"><span class="toc-number">1.0.5.9.</span> <span class="toc-text">梯度下降 vs 正規方程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tags-筆記-機器學習-線性回歸"><span class="toc-number">1.0.5.9.0.1.</span> <span class="toc-text">tags: 筆記 機器學習 線性回歸</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/note.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Kenny's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">筆記 - 機器學習 基礎與線性回歸</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-07-12<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-07-25</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/筆記/">筆記</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="筆記-機器學習-基礎與線性回歸"><a href="#筆記-機器學習-基礎與線性回歸" class="headerlink" title="[筆記] 機器學習 基礎與線性回歸"></a>[筆記] 機器學習 基礎與線性回歸</h1><h3 id="定義"><a href="#定義" class="headerlink" title="定義 :"></a>定義 :</h3><blockquote>
 <p> A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.</p>
 </blockquote>
 <p><img src="https://i.imgur.com/pBIYQVb.png" alt></p>
@@ -58,7 +58,7 @@
 </li>
 </ul>
 <h3 id="線性回歸算法-Linear-Regression"><a href="#線性回歸算法-Linear-Regression" class="headerlink" title="線性回歸算法 ( Linear Regression )"></a>線性回歸算法 ( Linear Regression )</h3><ul>
-<li><code>hΘ(x) = Θ₀ + Θ₁x₁</code> : 線性回歸算式</li>
+<li><code>hθ(x) = θ₀ + θ₁x₁</code> : 線性回歸算式</li>
 <li><code>m</code> : 資料量</li>
 <li><code>x⁽ⁱ⁾</code> : i 代表第 i 筆資料</li>
 </ul>
@@ -73,15 +73,15 @@
 </ul>
 <p><img src="https://i.imgur.com/ryFygNy.png" alt></p>
 <ul>
-<li>找出代價函數的最小值，來找出 Θ₀、Θ₁</li>
+<li>找出代價函數的最小值，來找出 θ₀、θ₁</li>
 </ul>
 <h4 id="使用梯度下降-Gradient-descent-將函數-J-最小化"><a href="#使用梯度下降-Gradient-descent-將函數-J-最小化" class="headerlink" title="使用梯度下降 ( Gradient descent ) 將函數 J 最小化"></a>使用梯度下降 ( Gradient descent ) 將函數 J 最小化</h4><ol>
-<li>初始化 Θ₀、Θ₁ ( Θ₀=0, Θ₁=0 也可以是其他值)</li>
-<li>不斷改變 Θ₀、Θ₁ 直到找到最小值，或許是局部最小值</li>
+<li>初始化 θ₀、θ₁ ( θ₀=0, θ₁=0 也可以是其他值)</li>
+<li>不斷改變 θ₀、θ₁ 直到找到最小值，或許是局部最小值</li>
 </ol>
 <p><img src="https://i.imgur.com/lDD0Y7J.png" alt></p>
 <ul>
-<li>梯度下降公式，不斷運算直到收斂，Θ₀、Θ₁ 必須同時更新</li>
+<li>梯度下降公式，不斷運算直到收斂，θ₀、θ₁ 必須同時更新</li>
 <li>α 後的公式其實就是導數 ( 一點上的切線斜率 )</li>
 <li>α 是 learning rate</li>
 </ul>
@@ -100,7 +100,7 @@
 </ul>
 <p><strong>Learning Rate α</strong></p>
 <ul>
-<li>α 是 learning rate，控制以多大幅度更新 Θ₀、Θ₁</li>
+<li>α 是 learning rate，控制以多大幅度更新 θ₀、θ₁</li>
 <li>決定 α 最好的方式是隨著絕對值的導數更新，絕對值的導數越大，α 越大</li>
 <li>α 可以從 0.001 開始 ( 每次 3 倍 )</li>
 <li>α 太小 : 收斂會很緩慢</li>
@@ -109,10 +109,10 @@
 <h4 id="結合梯度下降與代價函數"><a href="#結合梯度下降與代價函數" class="headerlink" title="結合梯度下降與代價函數"></a>結合梯度下降與代價函數</h4><p><img src="https://i.imgur.com/kR0TFuh.png" alt></p>
 <ul>
 <li>將代價函數帶入梯度下降公式</li>
-<li>以<strong>所有樣本</strong>帶入梯度下降公式不斷尋找 Θ₀、Θ₁，在機器學習裡稱作批量梯度下降 ( batch gradient descent )</li>
+<li>以<strong>所有樣本</strong>帶入梯度下降公式不斷尋找 θ₀、θ₁，在機器學習裡稱作批量梯度下降 ( batch gradient descent )</li>
 </ul>
 <h4 id="多特徵線性回歸-Linear-Regression-with-multiple-variables"><a href="#多特徵線性回歸-Linear-Regression-with-multiple-variables" class="headerlink" title="多特徵線性回歸 ( Linear Regression with multiple variables)"></a>多特徵線性回歸 ( Linear Regression with multiple variables)</h4><ul>
-<li><code>hΘ(x) = Θ₀x₀ + Θ₁x₁ + Θ₂x₂ + ... + Θₙxₙ</code> : 多特徵線性回歸算式，x₀ = 1</li>
+<li><code>hθ(x) = θ₀x₀ + θ₁x₁ + θ₂x₂ + ... + θₙxₙ</code> : 多特徵線性回歸算式，x₀ = 1</li>
 <li><code>n</code> : 特徵量</li>
 </ul>
 <p><img src="https://i.imgur.com/pOI4Lqt.png" alt></p>
@@ -151,7 +151,7 @@
 <ul>
 <li>在 Octave 上的正規方程函式</li>
 </ul>
-<p>在 Octave 裡我們通常用 <code>pinv</code> 而不是 <code>inv</code>，因為使用 <code>pinv</code> 就算 <code>XᵀX</code> 為不可逆，還是會給予 Θ 的值</p>
+<p>在 Octave 裡我們通常用 <code>pinv</code> 而不是 <code>inv</code>，因為使用 <code>pinv</code> 就算 <code>XᵀX</code> 為不可逆，還是會給予 θ 的值</p>
 <ul>
 <li><p><code>XᵀX</code> 不可逆的原因 :</p>
 <ul>

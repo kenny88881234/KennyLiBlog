@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
+    
+    <lastmod>2019-07-25T01:28:14.502Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/24/Machine-learning-overfitting-problem/</loc>
     
     <lastmod>2019-07-24T01:18:23.702Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://kennyliblog.nctu.me/2019/07/19/Machine-learning-logistic-regression/</loc>
     
     <lastmod>2019-07-24T01:15:06.614Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
-    
-    <lastmod>2019-07-24T01:14:32.592Z</lastmod>
     
   </url>
   
