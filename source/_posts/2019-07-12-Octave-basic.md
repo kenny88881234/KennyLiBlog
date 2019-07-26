@@ -56,9 +56,9 @@ cover: /img/note.jpg
 * `who` : 查看當前所有的矩陣
 * `whos` : 詳細查看當前所有的矩陣
 * `max(A)` : 查看 A 向量的最大值與索引位置，若 A 為矩陣查看 A 矩陣內每個 column 的最大值
-* `max(A, [], n)` : 查看 A 矩陣內的最大值，1 為查看 column，2 為查看 row
+* `max(A, [], n)` : 查看 A 矩陣內的最大值，n = 1 為查看 column，2 為查看 row
 * `min(A)` : 查看 A 向量的最小值與索引位置，若 A 為矩陣查看 A 矩陣內每個 column 的最小值
-* `min(A, [], n)` : 查看 A 矩陣內的最小值，1 為查看 column，2 為查看 row
+* `min(A, [], n)` : 查看 A 矩陣內的最小值，n = 1 為查看 column，2 為查看 row
 * `find(A < n)` : 查看元素小於 n 的位置
 
 #### 修改
