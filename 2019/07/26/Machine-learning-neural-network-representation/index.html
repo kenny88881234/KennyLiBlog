@@ -1,0 +1,124 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構 | Kenny's Blog</title><meta name="description" content="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><meta name="keywords" content="筆記,機器學習,神經網路"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/07/26/Machine-learning-neural-network-representation/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><meta name="twitter:description" content="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/07/26/Machine-learning-neural-network-representation/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="筆記 - 機器學習 過度擬合問題 ( overfitting )" href="https://kennyliblog.nctu.me/2019/07/24/Machine-learning-overfitting-problem/"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"cookieDomain":"https://KennyLi.me/","msgToTraditionalChinese":"简","msgToSimplifiedChinese":"繁"},
+  highlight_copy: 'true',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days'
+
+  
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#筆記-機器學習-神經網路-Neural-Network-表層結構"><span class="toc-number">1.</span> <span class="toc-text">[筆記] 機器學習 神經網路 ( Neural Network ) - 表層結構</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#為什麼使用神經網路"><span class="toc-number">1.0.1.</span> <span class="toc-text">為什麼使用神經網路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神經網路模型的運作"><span class="toc-number">1.0.2.</span> <span class="toc-text">神經網路模型的運作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#神經網路的模型"><span class="toc-number">1.0.2.1.</span> <span class="toc-text">神經網路的模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#神經網路的計算過程"><span class="toc-number">1.0.2.2.</span> <span class="toc-text">神經網路的計算過程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神經網路的應用"><span class="toc-number">1.0.3.</span> <span class="toc-text">神經網路的應用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#運算-OR"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">運算 OR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#進階運算-XNOR"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">進階運算 XNOR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多類別分類運算"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">多類別分類運算</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#tags-筆記-機器學習-神經網路"><span class="toc-number">1.0.3.3.0.1.</span> <span class="toc-text">tags: 筆記 機器學習 神經網路</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/note.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Kenny's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-07-26<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-07-26</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/筆記/">筆記</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="筆記-機器學習-神經網路-Neural-Network-表層結構"><a href="#筆記-機器學習-神經網路-Neural-Network-表層結構" class="headerlink" title="[筆記] 機器學習 神經網路 ( Neural Network ) - 表層結構"></a>[筆記] 機器學習 神經網路 ( Neural Network ) - 表層結構</h1><h3 id="為什麼使用神經網路"><a href="#為什麼使用神經網路" class="headerlink" title="為什麼使用神經網路"></a>為什麼使用神經網路</h3><ul>
+<li><p>在特徵量多的情況下，在非線性回歸算法裡，會產生很多的特徵項，這並不是一個解決複雜非線性問題的好辦法</p>
+</li>
+<li><p>假設我們要分類 50 * 50 像素的灰階圖片 :</p>
+<ul>
+<li>此特徵量 n = 2500 ( RBG 的話就是 n = 7500 )</li>
+<li>那麼 <code>xᵢ * xⱼ</code> 的所有條件就有 2500 * 2500 / 2 ≈ 300 萬</li>
+<li>這樣的計算成本太高了</li>
+</ul>
+</li>
+<li><p>而神經網路是個能輕鬆解決非線性問題的算法</p>
+</li>
+<li><p>神經網路最初產生的目的是模擬人類的大腦，早期不盛行的原因是，當時硬體無法支撐如此龐大的運算</p>
+</li>
+</ul>
+<h3 id="神經網路模型的運作"><a href="#神經網路模型的運作" class="headerlink" title="神經網路模型的運作"></a>神經網路模型的運作</h3><h4 id="神經網路的模型"><a href="#神經網路的模型" class="headerlink" title="神經網路的模型"></a>神經網路的模型</h4><p><img src="https://i.imgur.com/wHWmm3q.png" alt></p>
+<ul>
+<li>在前面輸入特徵 x₀ ~ xₙ</li>
+<li>x₀ 是一個偏置單元 ( bias unit )，始終為 1</li>
+<li>最後的輸出則是我們假設函數的結果</li>
+<li>在神經網路中最基本我們使用跟分類中相同的邏輯函數 <img src="https://i.imgur.com/JoFwfc8.png" alt>，有時會稱為激勵函數 ( sigmoid activation function )，之後也會有其他種的函數，例如 : TanH、ReLU</li>
+<li>theta 有時也被稱為權重 ( weights )</li>
+</ul>
+<p><img src="https://i.imgur.com/rlCPRlW.png" alt></p>
+<ul>
+<li>Layer 1 為 input layer</li>
+<li>Layer 2 為 hidden layer，在 input layer 和 output layer 之間的都是</li>
+<li>Layer 3 為 output layer</li>
+</ul>
+<p><code>aᵢ⁽ʲ⁾</code> 為在 Layer j 中的 activation unit i<br><code>Θ⁽ʲ⁾</code> 為控制 Layer j 到 Layer j + 1 的權重矩陣</p>
+<p><img src="https://i.imgur.com/73pU4MO.png" alt></p>
+<ul>
+<li><code>Θ⁽ʲ⁾</code> 的維度 ( dimension ) 為 sⱼ₊₁ * (sⱼ + 1)</li>
+<li>sⱼ 為在 Layer j 中的 unit 個數</li>
+</ul>
+<h4 id="神經網路的計算過程"><a href="#神經網路的計算過程" class="headerlink" title="神經網路的計算過程"></a>神經網路的計算過程</h4><p><img src="https://i.imgur.com/rlCPRlW.png" alt></p>
+<ul>
+<li>假設 <code>x = a⁽¹⁾</code></li>
+<li><code>a⁽ʲ⁾ = g(z⁽ʲ⁾)</code>，例如 : <code>a⁽²⁾ = g(z⁽²⁾)</code></li>
+<li><code>z⁽ʲ⁾ = Θ⁽ʲ⁻¹⁾a⁽ʲ⁻¹⁾</code>，例如 : <code>z⁽²⁾ = Θ⁽¹⁾a⁽¹⁾</code></li>
+<li><code>hΘ(x) = a⁽ʲ⁾ = g(z⁽ʲ⁾)</code>，此 Layer j 為 output layer</li>
+</ul>
+<h3 id="神經網路的應用"><a href="#神經網路的應用" class="headerlink" title="神經網路的應用"></a>神經網路的應用</h3><h4 id="運算-OR"><a href="#運算-OR" class="headerlink" title="運算 OR"></a>運算 OR</h4><p><img src="https://i.imgur.com/8iJbAvz.png" alt></p>
+<ul>
+<li><code>hΘ(x) = g(-10 + 20x₁ + 20x₂)</code></li>
+</ul>
+<ol>
+<li>x₁ = 0 and x₂ = 0 then g(−10) ≈ 0</li>
+<li>x₁ = 0 and x₂ = 1 then g(10) ≈ 1</li>
+<li>x₁ = 1 and x₂ = 0 then g(10) ≈ 1</li>
+<li>x₁ = 1 and x₂ = 1 then g(30) ≈ 1</li>
+</ol>
+<ul>
+<li>g() 為邏輯函數 ( sigmoid function )</li>
+</ul>
+<h4 id="進階運算-XNOR"><a href="#進階運算-XNOR" class="headerlink" title="進階運算 XNOR"></a>進階運算 XNOR</h4><ul>
+<li>AND : <code>Θ⁽¹⁾ = [-30 20 20]</code></li>
+<li>NOR : <code>Θ⁽¹⁾ = [10 -20 -20]</code></li>
+<li>OR : <code>Θ⁽¹⁾ = [-10 20 20]</code></li>
+</ul>
+<p>將三個結合後 :</p>
+<p><img src="https://i.imgur.com/kFjZ6lo.png" alt></p>
+<ul>
+<li><p><img src="https://i.imgur.com/gCpv7Tz.png" alt></p>
+</li>
+<li><p><img src="https://i.imgur.com/NLvFxyo.png" alt></p>
+</li>
+<li><p><img src="https://i.imgur.com/fW2CqLL.png" alt></p>
+</li>
+</ul>
+<ol>
+<li><code>a⁽²⁾ = g(Θ⁽¹⁾x)</code></li>
+<li><code>a⁽³⁾ = g(Θ⁽²⁾a⁽²⁾)</code></li>
+<li><code>hΘ(x) = a⁽³⁾</code></li>
+</ol>
+<h4 id="多類別分類運算"><a href="#多類別分類運算" class="headerlink" title="多類別分類運算"></a>多類別分類運算</h4><ul>
+<li>在多類別分類時，並不是 <code>y = 1</code>、<code>y = 2</code>、<code>y = 3</code>、<code>y = 4</code>…這樣分類</li>
+<li>而是有多個輸出來個別表示是否為此分類</li>
+</ul>
+<p><img src="https://i.imgur.com/sg3BjP6.png" alt></p>
+<ul>
+<li>假設這次有 4 種分類，那輸出的所有種類如上</li>
+</ul>
+<p><img src="https://i.imgur.com/J9N4xIY.png" alt></p>
+<ul>
+<li>神經網路的模型可以這樣設置</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function [all_theta] = oneVsAll(X, y, num_labels, lambda)</span><br><span class="line"></span><br><span class="line">m = size(X, 1);</span><br><span class="line">n = size(X, 2);</span><br><span class="line"></span><br><span class="line">all_theta = zeros(num_labels, n + 1);</span><br><span class="line"></span><br><span class="line">X = [ones(m, 1) X]; %加入 x₀</span><br><span class="line"></span><br><span class="line">initial_theta = zeros(n + 1, 1);</span><br><span class="line"></span><br><span class="line">options = optimset(&apos;GradObj&apos;, &apos;on&apos;, &apos;MaxIter&apos;, 50);</span><br><span class="line"></span><br><span class="line">for c = 1:num_labels</span><br><span class="line"></span><br><span class="line">  [theta] = fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), initial_theta, options);</span><br><span class="line">  all_theta(c, :) = theta&apos;;</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 Octave 上的多類別分類器函式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function p = predictOneVsAll(all_theta, X)</span><br><span class="line"></span><br><span class="line">m = size(X, 1);</span><br><span class="line">num_labels = size(all_theta, 1);</span><br><span class="line">p = zeros(size(X, 1), 1);</span><br><span class="line"></span><br><span class="line">X = [ones(m, 1) X];  </span><br><span class="line"></span><br><span class="line">predict = sigmoid(X * all_theta&apos;);</span><br><span class="line">[predict_max, index_max] = max(predict, [], 2);</span><br><span class="line">p = index_max;</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 Octave 上的預測計算函式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function p = predict(Theta1, Theta2, X)</span><br><span class="line"></span><br><span class="line">m = size(X, 1);</span><br><span class="line">num_labels = size(Theta2, 1);</span><br><span class="line">p = zeros(size(X, 1), 1);</span><br><span class="line"></span><br><span class="line">X = [ones(m, 1) X];</span><br><span class="line"></span><br><span class="line">z2 = X * Theta1&apos;;</span><br><span class="line">a2 = sigmoid(z2);</span><br><span class="line"></span><br><span class="line">a2 = [ones(size(a2, 1), 1) a2]; %加入 a₀⁽²⁾</span><br><span class="line"></span><br><span class="line">z3 = a2 * Theta2&apos;</span><br><span class="line">a3 = sigmoid(z3)</span><br><span class="line"></span><br><span class="line">[a3_max, index_max] = max(a3, [], 2);</span><br><span class="line">p = index_max;</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在 Octave 上的預測計算函式 ( 多層神經網路 )</li>
+</ul>
+<h6 id="tags-筆記-機器學習-神經網路"><a href="#tags-筆記-機器學習-神經網路" class="headerlink" title="tags: 筆記 機器學習 神經網路"></a>tags: <code>筆記</code> <code>機器學習</code> <code>神經網路</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/07/26/Machine-learning-neural-network-representation/">https://kennyliblog.nctu.me/2019/07/26/Machine-learning-neural-network-representation/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/機器學習/">機器學習    </a><a class="post-meta__tags" href="/tags/神經網路/">神經網路    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/07/24/Machine-learning-overfitting-problem/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - 機器學習 過度擬合問題 ( overfitting )</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Machine-learning-basic-linear-regression/" title="筆記 - 機器學習 基礎與線性回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 基礎與線性回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/07/24/Machine-learning-overfitting-problem/" title="筆記 - 機器學習 過度擬合問題 ( overfitting )"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 過度擬合問題 ( overfitting )</div></a></div><div class="relatedPosts_item"><a href="/2019/07/19/Machine-learning-logistic-regression/" title="筆記 - 機器學習 邏輯回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 邏輯回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>

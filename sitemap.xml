@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/26/Machine-learning-neural-network-representation/</loc>
+    
+    <lastmod>2019-07-26T02:59:02.767Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/12/Octave-basic/</loc>
+    
+    <lastmod>2019-07-26T02:02:11.012Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
     
     <lastmod>2019-07-25T01:28:14.502Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>https://kennyliblog.nctu.me/2019/07/12/Csharp-use-global-variable/</loc>
     
     <lastmod>2019-07-12T08:51:39.798Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/07/12/Octave-basic/</loc>
-    
-    <lastmod>2019-07-12T01:02:23.635Z</lastmod>
     
   </url>
   
@@ -156,14 +163,14 @@
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
