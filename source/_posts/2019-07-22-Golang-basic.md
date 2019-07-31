@@ -1,5 +1,5 @@
 ---
-title: Golang-basic
+title: 筆記 - Golang 基礎
 date: 2019-07-22 16:17:37
 tags:
   - 筆記
