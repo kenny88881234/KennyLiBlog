@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/08/05/Machine-learning-neural-network-advanced/</loc>
+    
+    <lastmod>2019-08-05T03:18:28.454Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/07/22/Golang-basic/</loc>
     
     <lastmod>2019-07-31T09:06:55.075Z</lastmod>
@@ -163,14 +170,14 @@
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://kennyliblog.nctu.me/2019/06/17/Cmder-install/</loc>
+    <loc>https://kennyliblog.nctu.me/2019/06/17/NodeJS-npm-install/</loc>
     
     <lastmod>2019-06-20T03:21:05.858Z</lastmod>
     
