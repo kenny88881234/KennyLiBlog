@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://kennyliblog.nctu.me/2019/08/08/Madvice-for-model/</loc>
+    
+    <lastmod>2019-08-08T05:39:19.178Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://kennyliblog.nctu.me/2019/07/24/Machine-learning-overfitting-problem/</loc>
+    
+    <lastmod>2019-08-08T05:35:36.752Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://kennyliblog.nctu.me/2019/08/05/Machine-learning-neural-network-advanced/</loc>
     
     <lastmod>2019-08-05T03:18:28.454Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>https://kennyliblog.nctu.me/2019/07/12/Machine-learning-basic-linear-regression/</loc>
     
     <lastmod>2019-07-25T01:28:14.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://kennyliblog.nctu.me/2019/07/24/Machine-learning-overfitting-problem/</loc>
-    
-    <lastmod>2019-07-24T01:18:23.702Z</lastmod>
     
   </url>
   
