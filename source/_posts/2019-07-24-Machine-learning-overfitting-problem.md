@@ -69,6 +69,28 @@ cover: /img/note.jpg
 * 將 `θⱼ` 提出來
 * 此為正規化線性回歸
 
+```Octave=
+function [J, grad] = linearRegCostFunction(theta, X, y, lambda)
+
+m = length(y);
+J = 0;
+grad = zeros(size(theta));
+
+h = X * theta;
+sqrErrors = (h - y) .^ 2;
+
+shift_theta = theta(2:size(theta));
+theta_reg = [0;shift_theta];
+
+J = (1 / (2 * m)) * sum(sqrErrors) + (lambda / (2 * m)) * theta_reg' * theta_reg;
+
+grad = (1 / m) * (X' * (h - y) + (lambda * theta_reg));
+
+end
+```
+
+* 在 Octave 上的正規化線性回歸函式
+
 
 #### 正規化正規方程 ( Regularized Normal Equation )
 
