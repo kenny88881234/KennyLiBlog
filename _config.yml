@@ -85,3 +85,13 @@ deploy:
 #Sitemap
 sitemap:
   path: sitemap.xml
+
+#kramed
+kramed:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
