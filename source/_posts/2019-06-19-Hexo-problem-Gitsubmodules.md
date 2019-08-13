@@ -45,6 +45,8 @@ cover: /img/problem.jpg
     2. `git submodule update --remote` : 若作者有更新主題，便可用這種方式更新
     3. `git clone --recursive` : 若要 clone 此包含 submodules 的倉庫，用此指令可以自動初始化每一個 submodules，並更新
 
-### 參考 : [在 hexo 中使用 git submodules 管理主題](https://juejin.im/post/5c2e22fcf265da615d72c596?fbclid=IwAR2ci80WnaE6aXhJdji-4U9gleRc57PgBcAc28gJKrctLl7DXMJgIo_EUNQ)
+### 參考 : 
+
+* [在 hexo 中使用 git submodules 管理主題](https://juejin.im/post/5c2e22fcf265da615d72c596?fbclid=IwAR2ci80WnaE6aXhJdji-4U9gleRc57PgBcAc28gJKrctLl7DXMJgIo_EUNQ)
 
 ###### tags: `問題` `Hexo Blog` `Git`
