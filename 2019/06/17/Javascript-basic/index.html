@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - Javascript 基礎 | Kenny's Blog</title><meta name="description" content="筆記 - Javascript 基礎"><meta name="keywords" content="筆記,程式語言,Javascript"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - Javascript 基礎"><meta name="twitter:description" content="筆記 - Javascript 基礎"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - Javascript 基礎"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - Javascript 基礎"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="筆記 - CSS 基礎" href="https://kennyliblog.nctu.me/2019/06/17/CSS-basic/"><link rel="next" title="安裝 - Cmder 的安裝與配置" href="https://kennyliblog.nctu.me/2019/06/17/Cmder-install/"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - Javascript 基礎 | Kenny's Blog</title><meta name="description" content="筆記 - Javascript 基礎"><meta name="keywords" content="筆記,程式語言,Javascript"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - Javascript 基礎"><meta name="twitter:description" content="筆記 - Javascript 基礎"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - Javascript 基礎"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - Javascript 基礎"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="安裝 - VS code 安裝與好用套件" href="https://kennyliblog.nctu.me/2019/06/17/VScode-install/"><link rel="next" title="筆記 - CSS 基礎" href="https://kennyliblog.nctu.me/2019/06/17/CSS-basic/"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -25,10 +25,8 @@
 </li>
 <li><p>弱型別語言</p>
 <ul>
-<li><p>執行期間才檢查型別</p>
-</li>
-<li><p>優點 : 開發快</p>
-</li>
+<li>執行期間才檢查型別</li>
+<li>優點 : 開發快</li>
 <li><p>缺點 : 大專案難以維護，無法知道型別</p>
 <ul>
 <li>typescript強制javascript宣告型別</li>
@@ -40,10 +38,8 @@
 <ul>
 <li><p>除了原始型別，其他都是物件</p>
 <ul>
-<li><p>原始型別 : Numbers、String、Booleans…等</p>
-</li>
-<li><p>物件可以包含物件</p>
-</li>
+<li>原始型別 : Numbers、String、Booleans…等</li>
+<li>物件可以包含物件</li>
 <li><p>value可以關聯function</p>
 <p><img src="https://i.imgur.com/X2tukto.png" alt></p>
 </li>
@@ -60,22 +56,19 @@
 </li>
 <li><p>javascript物件其實是HashMap</p>
 <ul>
-<li><p>屬性名稱一定是字串</p>
-</li>
+<li>屬性名稱一定是字串</li>
 <li><p>取得屬性方法有兩種</p>
 <ul>
 <li>物件取法 : <code>car.name</code></li>
 <li>陣列取法 : <code>car[&#39;name&#39;]</code></li>
 </ul>
 </li>
-<li><p>數字不能當變數</p>
-</li>
+<li>數字不能當變數</li>
 </ul>
 </li>
 <li><p>javascript沒有class，不需要建構式(constructor)就能建立物件</p>
 <ul>
-<li><p>javascript的constructor就是函式，稱建構式函式</p>
-</li>
+<li>javascript的constructor就是函式，稱建構式函式</li>
 <li><p>使用new來透過建構式函式建立物件</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">first, last, age, eyecolor</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.firstName = first;</span><br><span class="line">    <span class="keyword">this</span>.lastName = last;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.eyeColor = eyecolor;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> myFather = <span class="keyword">new</span> person(<span class="string">"John"</span>, <span class="string">"Doe"</span>, <span class="number">50</span>, <span class="string">"blue"</span>);</span><br></pre></td></tr></table></figure>
 </li>
@@ -88,11 +81,9 @@
 </li>
 <li><p>javascript物件可以不須先行宣告就可自由擴充屬性</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="string">'a'</span>:<span class="number">1</span>, <span class="string">'b'</span>:<span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">//擴增屬性</span></span><br><span class="line">obj.c = <span class="number">3</span>;</span><br><span class="line"><span class="comment">//刪除屬性</span></span><br><span class="line"><span class="keyword">delete</span> obj.b;</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ol>
-<ol start="5">
+<ol>
 <li><p>原生物件與宿主物件</p>
 <ol>
 <li>原生物件(Native) : 例如Array、Data…等</li>
@@ -126,13 +117,12 @@
 <li><p>String</p>
 <ul>
 <li>宣告 : <code>abc</code> “abc” ‘abc’</li>
-<li>雙引號之內要雙引號必須加斜線 “&quot;“ 這會是 “</li>
+<li>雙引號之內要雙引號必須加斜線 “\”” 這會是 “</li>
 </ul>
 </li>
 <li><p>Booleans</p>
 <ul>
-<li><p>NaN == NaN 會是 true</p>
-</li>
+<li>NaN == NaN 會是 true</li>
 <li><p>正確判斷要用三個等於</p>
   <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="string">"1"</span>)</span><br><span class="line"><span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> === <span class="string">"1"</span>)</span><br><span class="line"><span class="comment">//false</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -170,7 +160,6 @@
 </li>
 <li><p>匿名宣告</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>)</span>&#123;<span class="keyword">return</span> a+b;&#125;;</span><br><span class="line">        <span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">3. prompt</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript=</span><br><span class="line">a = prompt(<span class="string">"Enter passcode"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 </li>
@@ -197,7 +186,6 @@
 </li>
 <li><p>Event objects</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> button = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span><br><span class="line">button.addEventListener(<span class="string">"mousedown"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.button == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Left button"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.button == <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Middle button"</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.button == <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"Right button"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>event可以自行命名</li>
 <li>舊寫法 : event 換成 function(event)</li>
@@ -205,7 +193,6 @@
 </li>
 <li><p>Propagation</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> para = <span class="built_in">document</span>.querySelector(<span class="string">"p"</span>);</span><br><span class="line"><span class="keyword">let</span> button = <span class="built_in">document</span>.querySelector(<span class="string">"button"</span>);</span><br><span class="line">para.addEventListener(<span class="string">"mousedown"</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Handler for paragraph."</span>);</span><br><span class="line">&#125;);</span><br><span class="line">button.addEventListener(<span class="string">"mousedown"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Handler for button."</span>);</span><br><span class="line">    <span class="keyword">if</span> (event.button == <span class="number">2</span>) event.stopPropagation();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>stopPropagation()可以阻止事件冒泡(event bubbling)</li>
 <li>事件冒泡(event bubbling) : 事件會往外傳遞</li>
@@ -213,18 +200,15 @@
 </li>
 <li><p>Default actions</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=<span class="string">"https://developer.mozilla.org/"</span>&gt;MDN&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;script&gt;</span></span><br><span class="line"><span class="regexp">    let link = document.querySelector("a");</span></span><br><span class="line"><span class="regexp">    link.addEventListener("click", event =&gt; &#123;</span></span><br><span class="line"><span class="regexp">        console.log("Nope.");</span></span><br><span class="line"><span class="regexp">        event.preventDefault();</span></span><br><span class="line"><span class="regexp">    &#125;);</span></span><br><span class="line"><span class="regexp">&lt;/</span>script&gt;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>preventDefault()可以阻止初始的行為</li>
 </ul>
 </li>
 <li><p>Key events</p>
  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"keydown"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.key == <span class="string">"v"</span>) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.background = <span class="string">"violet"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"keyup"</span>, event =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (event.key == <span class="string">"v"</span>) &#123;</span><br><span class="line">      <span class="built_in">document</span>.body.style.background = <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
 </li>
 </ol>
-<ol start="7">
+<ol>
 <li><p>Scroll events</p>
 <ul>
 <li>“scroll” : 滾輪滾動</li>
@@ -245,7 +229,6 @@
 <li><p>const物件是可以改變的</p>
 <ul>
 <li><figure class="highlight plain"><figcaption><span>a </span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">    * a不能改變</span><br><span class="line"></span><br><span class="line">* ```const b = &#123;&#125;;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>b可以改變</li>
 </ul>
@@ -267,6 +250,28 @@
 </ul>
 </li>
 </ol>
-<h6 id="tags-筆記-程式語言-Javascript"><a href="#tags-筆記-程式語言-Javascript" class="headerlink" title="tags: 筆記 程式語言 Javascript"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Javascript</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/">https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Javascript/">Javascript    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/17/CSS-basic/"><img class="prev_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>筆記 - CSS 基礎</span></div></a></div><div class="next-post pull-right"><a href="/2019/06/17/Cmder-install/"><img class="next_cover lozad" data-src="/img/install.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>安裝 - Cmder 的安裝與配置</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/23/Python-basic/" title="筆記 - Python 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Python 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/22/Golang-basic/" title="筆記 - Golang 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Golang 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/20/JQuery/" title="函式庫 - JQuery"><img class="relatedPosts_cover lozad" data-src="/img/library.jpg"><div class="relatedPosts_title">函式庫 - JQuery</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+<h6 id="tags-筆記-程式語言-Javascript"><a href="#tags-筆記-程式語言-Javascript" class="headerlink" title="tags: 筆記 程式語言 Javascript"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Javascript</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/">https://kennyliblog.nctu.me/2019/06/17/Javascript-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Javascript/">Javascript    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/17/VScode-install/"><img class="prev_cover lozad" data-src="/img/install.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>安裝 - VS code 安裝與好用套件</span></div></a></div><div class="next-post pull-right"><a href="/2019/06/17/CSS-basic/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - CSS 基礎</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/23/Python-basic/" title="筆記 - Python 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Python 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/22/Golang-basic/" title="筆記 - Golang 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Golang 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/20/JQuery/" title="函式庫 - JQuery"><img class="relatedPosts_cover lozad" data-src="/img/library.jpg"><div class="relatedPosts_title">函式庫 - JQuery</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
 
 </script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>

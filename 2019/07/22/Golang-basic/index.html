@@ -29,8 +29,7 @@
 <li>撰寫程式</li>
 </ol>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main <span class="comment">//可執行的城市必須使用 main</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span> <span class="comment">//載入內建 fmt 封包，用來做基本輸出輸入</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li><p>建置 ( build ) : <code>go build &lt;檔名&gt;.go</code></p>
 <p> <img src="https://i.imgur.com/PPNK5AY.png" alt></p>
 <ul>
@@ -47,8 +46,7 @@
 <li>bin : 放置執行檔</li>
 </ul>
 <h3 id="資料、資料型態、變數"><a href="#資料、資料型態、變數" class="headerlink" title="資料、資料型態、變數"></a>資料、資料型態、變數</h3><h4 id="資料型態"><a href="#資料型態" class="headerlink" title="資料型態"></a>資料型態</h4><ul>
-<li><p>int : 整數 ( int8、int16、int32、int64、uint8、uint16… )</p>
-</li>
+<li>int : 整數 ( int8、int16、int32、int64、uint8、uint16… )</li>
 <li><p>float64 : 浮點數 ( float32、complex128 )</p>
   <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="keyword">complex128</span> = <span class="built_in">complex</span>(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">//1 + 2i</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -68,28 +66,23 @@
 <ul>
 <li><p>Unicode package</p>
   <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">IsDigit(r <span class="keyword">rune</span>) <span class="comment">//判斷 r 是否為十進制數字</span></span><br><span class="line">IsSpace(r <span class="keyword">rune</span>) <span class="comment">//判斷 r 是否為空白</span></span><br><span class="line">IsLetter(r <span class="keyword">rune</span>) <span class="comment">//判斷 r 是否為字母</span></span><br><span class="line">IsLower(r <span class="keyword">rune</span>) <span class="comment">//判斷 r 是否為小寫</span></span><br><span class="line">IsPunct(r <span class="keyword">rune</span>) <span class="comment">//判斷 r 是否為符號</span></span><br><span class="line">ToUpper(r <span class="keyword">rune</span>) <span class="comment">//轉成大寫</span></span><br><span class="line">ToLower(r <span class="keyword">rune</span>) <span class="comment">//轉成小寫</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 </li>
 </ul>
 </li>
 </ul>
 <h4 id="資料型態轉換"><a href="#資料型態轉換" class="headerlink" title="資料型態轉換"></a>資料型態轉換</h4><p><code>type(變數)</code> : 以資料型態把變數括起來，例如 :</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int32</span>(x)</span><br></pre></td></tr></table></figure>
-
 <h4 id="變數宣告"><a href="#變數宣告" class="headerlink" title="變數宣告"></a>變數宣告</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> &lt;變數名稱&gt; &lt;資料型態名稱&gt; <span class="comment">//宣告變數</span></span><br><span class="line"><span class="keyword">var</span> &lt;變數名稱&gt; = <span class="number">100</span> <span class="comment">//宣告變數並賦予值，自動判別型別</span></span><br><span class="line">&lt;變數名稱&gt; := <span class="number">100</span> <span class="comment">//宣告變數並賦予值，自動判別型別</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>const</p>
   <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &lt;變數名稱&gt; = <span class="number">100</span> <span class="comment">//const 宣告為固定值，不可改變</span></span><br><span class="line"><span class="keyword">const</span> ( <span class="comment">//多個 const 宣告</span></span><br><span class="line">    &lt;變數名稱&gt; = <span class="string">"Hi"</span></span><br><span class="line">    &lt;變數名稱&gt; = <span class="number">1000</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>iota</p>
   <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    &lt;變數名稱&gt; = <span class="literal">iota</span> <span class="comment">//0</span></span><br><span class="line">    &lt;變數名稱&gt; <span class="comment">//1</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
 <p>  iota 初始為 0，每次 const 都會讓 iota 初始化</p>
 </li>
 </ul>
 <h4 id="資料型態重命名"><a href="#資料型態重命名" class="headerlink" title="資料型態重命名"></a>資料型態重命名</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> IDnum <span class="keyword">int</span> <span class="comment">//重命名後，int 還是可以用</span></span><br><span class="line"><span class="keyword">var</span> pid IDnum</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>重命名後就可以使用新的資料型態名稱來宣告變數</li>
 </ul>
@@ -102,35 +95,25 @@
 <li>switch、select 內的子句 : 子句內的程式碼</li>
 </ul>
 <h3 id="基本輸入與輸出"><a href="#基本輸入與輸出" class="headerlink" title="基本輸入與輸出"></a>基本輸入與輸出</h3><h4 id="載入內建封包"><a href="#載入內建封包" class="headerlink" title="載入內建封包"></a>載入內建封包</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="從終端介面輸入"><a href="#從終端介面輸入" class="headerlink" title="從終端介面輸入"></a>從終端介面輸入</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fmt.Scanln(&amp;變數名稱, &amp;變數名稱, ...) <span class="comment">//以換行為結束</span></span><br><span class="line">fmt.Scan(&amp;變數名稱, &amp;變數名稱, ...) <span class="comment">//以換行或空白為結束</span></span><br><span class="line">fmt.Scanf(<span class="string">"變數格式，EX : %d"</span>, &amp;變數名稱) <span class="comment">//跟 C 語言的用法一樣</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>&amp;變數名稱</code> : 取得變數的指標 ( Pointer )</li>
 </ul>
 <h4 id="印出到終端介面"><a href="#印出到終端介面" class="headerlink" title="印出到終端介面"></a>印出到終端介面</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(資料, 資料, ...) <span class="comment">//換行</span></span><br><span class="line">fmt.Print(資料, 資料, ...) <span class="comment">//不換行</span></span><br><span class="line">fmt.Printf(<span class="string">"變數格式，EX : %d"</span>, 變數名稱) <span class="comment">//跟 C 語言的用法一樣</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="指標-Pointer"><a href="#指標-Pointer" class="headerlink" title="指標 ( Pointer )"></a>指標 ( Pointer )</h3><ul>
 <li><code>&amp;</code> : 傳回變數或函式的地址</li>
 <li><code>*</code> : 傳回此地址的值</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="keyword">int</span> = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> y <span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> ip *<span class="keyword">int</span> <span class="comment">//ip is pointer to int</span></span><br><span class="line"></span><br><span class="line">ip = &amp;x <span class="comment">//ip now points to x</span></span><br><span class="line">y = *ip <span class="comment">//y is now 1</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>new()</code> : 這個函式用來創建變數，並給予變數指標</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ptr := <span class="built_in">new</span>(<span class="keyword">int</span>)</span><br><span class="line">*ptr = <span class="number">3</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="結構控制"><a href="#結構控制" class="headerlink" title="結構控制"></a>結構控制</h3><h4 id="if"><a href="#if" class="headerlink" title="if"></a>if</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> &lt;條件&gt; &#123; <span class="comment">//條件沒有小括弧</span></span><br><span class="line">    &lt;待執行程式&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h4 id="for-loops-Go-沒有-while，for-是唯一的循環語句"><a href="#for-loops-Go-沒有-while，for-是唯一的循環語句" class="headerlink" title="for loops ( Go 沒有 while，for 是唯一的循環語句 )"></a>for loops ( Go 沒有 while，for 是唯一的循環語句 )</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> &lt;初始值&gt;;&lt;結束值&gt;;&lt;更新值&gt; &#123;</span><br><span class="line">    &lt;待執行程式&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;初始值&gt;</span><br><span class="line"><span class="keyword">for</span> &lt;結束值&gt; &#123; <span class="comment">//類似 while</span></span><br><span class="line">    &lt;待執行程式&gt;</span><br><span class="line">    &lt;更新值&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h4 id="switch"><a href="#switch" class="headerlink" title="switch"></a>switch</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> &lt;變數&gt; &#123; <span class="comment">//Go 不需要 break</span></span><br><span class="line">    <span class="keyword">case</span> &lt;變數為此執行此行&gt;:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">    <span class="keyword">case</span> &lt;變數為此執行此行&gt;:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> &#123; <span class="comment">//switch 不用變數 tag 時，類似 if、else if</span></span><br><span class="line">    <span class="keyword">case</span> &lt;條件&gt;:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">    <span class="keyword">case</span> &lt;條件&gt;:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        &lt;待執行程式&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="複合型別"><a href="#複合型別" class="headerlink" title="複合型別"></a>複合型別</h3><h4 id="Arrays"><a href="#Arrays" class="headerlink" title="Arrays"></a>Arrays</h4><ul>
 <li>固定空間的元素集合</li>
 <li>以 <code>[]</code> 宣告與表示</li>
@@ -138,25 +121,20 @@
 <li>初始值為 0 或空字串</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x [<span class="number">5</span>]<span class="keyword">int</span></span><br><span class="line">x[<span class="number">0</span>] = <span class="number">2</span></span><br><span class="line">fmt.Printf(x[<span class="number">1</span>]) <span class="comment">//印出為 0</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x [<span class="number">5</span>]<span class="keyword">int</span> = [<span class="number">5</span>]&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>宣告並給予初始值</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x := [...]<span class="keyword">int</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>...</code> 可以用於不定數</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x := [<span class="number">3</span>]<span class="keyword">int</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, v <span class="keyword">range</span> x &#123;</span><br><span class="line">fmt.Printf(<span class="string">"ind %d, val %d"</span>, i, v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>在 for loop 使用 <code>range</code>，<code>range</code> 會回傳兩個數值，索引值與此索引內的值</li>
 </ul>
 <h4 id="Slices"><a href="#Slices" class="headerlink" title="Slices"></a>Slices</h4><ul>
-<li><p>可動態的增加空間，不需像 array 一樣指定大小</p>
-</li>
+<li>可動態的增加空間，不需像 array 一樣指定大小</li>
 <li><p>由三個元件組成</p>
 <ul>
 <li>Pointer : 指向一個 array 的指標</li>
@@ -166,28 +144,23 @@
 </li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">arr := [...]<span class="keyword">string</span> &#123;<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>, <span class="string">"f"</span>, <span class="string">"g"</span>&#125;</span><br><span class="line">s1 := arr[<span class="number">1</span>:<span class="number">3</span>] <span class="comment">//&#123;"b", "c"&#125;</span></span><br><span class="line">s2 := arr[<span class="number">2</span>:<span class="number">5</span>] <span class="comment">//&#123;"c", "d", "e"&#125;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>s1、s2 為 Slices</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sli := []<span class="keyword">int</span> &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>宣告方法，也可以不給予初始值</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sli1 = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">10</span>) <span class="comment">//len = cap = 10</span></span><br><span class="line">sli2 = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">10</span>, <span class="number">15</span>) <span class="comment">//len = 10,cap = 15</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用 <code>make()</code> 宣告</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sli = <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">sli = <span class="built_in">append</span>(sli, <span class="number">100</span>) <span class="comment">//len 會跟著增加</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用 <code>append()</code> 增加 Slice 內的元素</li>
 </ul>
 <h4 id="Hash-Tables"><a href="#Hash-Tables" class="headerlink" title="Hash Tables"></a>Hash Tables</h4><ul>
-<li><p>Key 和 value</p>
-</li>
+<li>Key 和 value</li>
 <li><p>優點 :</p>
 <ul>
 <li>較快的搜尋速度 : 比起 list 一個一個找快很多</li>
@@ -202,33 +175,27 @@
 </ul>
 <p><img src="https://i.imgur.com/95GqlGl.png" alt></p>
 <h4 id="Maps"><a href="#Maps" class="headerlink" title="Maps"></a>Maps</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> idMap1 <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span> <span class="comment">//宣告</span></span><br><span class="line">idMap2 = <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">//以 make() 宣告</span></span><br><span class="line">idMap3 := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span> &#123; <span class="comment">//宣告並給予值</span></span><br><span class="line">    <span class="string">"joe"</span> : <span class="number">123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>宣告</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(idMap[<span class="string">"joe"</span>])</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idMap[<span class="string">"jane"</span>] = <span class="number">456</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>新增</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delete</span>(idMap, <span class="string">"joe"</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>刪除</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id, p := idMap[<span class="string">"joe"</span>]</span><br><span class="line">fmt.Println(<span class="built_in">len</span>(idMap))</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>id 為 value，p 為是否存在此 Key，存在為 true</li>
 <li><code>len()</code> 可查看此 Map 有多少鍵值對</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> key, val := <span class="keyword">range</span> idMap &#123;</span><br><span class="line">    fmt.Println(key, val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>Map 在 for loop 的應用</li>
 </ul>
@@ -236,32 +203,26 @@
 <li>多種資料型態的集合</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="keyword">struct</span> Person &#123;</span><br><span class="line">    name <span class="keyword">string</span></span><br><span class="line">    addr <span class="keyword">string</span></span><br><span class="line">    phone <span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 Person</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>宣告</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1 := <span class="built_in">new</span>(Person)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>以 <code>new()</code> 宣告並初始化</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1 := Person(name : <span class="string">"joe"</span>, addr : <span class="string">"a st."</span>, phone : <span class="string">"123"</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>宣告並賦予值</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">p1.name = <span class="string">"joe"</span></span><br><span class="line">x = p1.addr</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>賦予值與使用</li>
 </ul>
 <h3 id="協定與格式"><a href="#協定與格式" class="headerlink" title="協定與格式"></a>協定與格式</h3><h4 id="RFC-Requests-for-Comments"><a href="#RFC-Requests-for-Comments" class="headerlink" title="RFC ( Requests for Comments )"></a>RFC ( Requests for Comments )</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"net/http"</span></span><br><span class="line"></span><br><span class="line">http.Get(www.uci.edu)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用 HTTP 協定，GET、POST、PUT…等等</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"net"</span></span><br><span class="line"></span><br><span class="line">net.Dial(<span class="string">"tcp"</span>, <span class="string">"uci.edu:80"</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>使用於 TCP/IP 連線與撰寫 socket 程式</li>
 </ul>
@@ -273,48 +234,62 @@
 <li>可以結合多種資料型態</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p1 := Person(name : <span class="string">"joe"</span>, addr : <span class="string">"a st."</span>, phone : <span class="string">"123"</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>struct</li>
 </ul>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>:<span class="string">"joe"</span>,</span><br><span class="line">    <span class="attr">"addr"</span> : <span class="string">"a st."</span>,</span><br><span class="line">    <span class="attr">"phone"</span> : <span class="string">"123"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>JSON，相當於上面的 struct</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"encoding/json"</span></span><br><span class="line"></span><br><span class="line">barr, err := json.Marshal(p1)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>將 struct <code>p1</code> 轉換成 JSON 格式</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p2 Person</span><br><span class="line"></span><br><span class="line">err := json.Unmarshal(barr, &amp;p2)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>將 JSON 格式轉換成 go object 放進 <code>p2</code></li>
 <li>會自動適應 Person 的各項屬性，若無會回傳 err</li>
 </ul>
 <h4 id="File"><a href="#File" class="headerlink" title="File"></a>File</h4><p><strong>ioutil</strong></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"ioutil"</span></span><br><span class="line"></span><br><span class="line">data, e := ioutil.ReadFile(<span class="string">"test.txt"</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>ReadFile 可以讀取檔案內容，不須開啟與關閉檔案，如果檔案過大可能會造成錯誤</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = <span class="string">"Hello, world"</span></span><br><span class="line"></span><br><span class="line">err := ioutil.WriteFile(<span class="string">"outfile.txt"</span>, data, <span class="number">0777</span>)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>WriteFile 會創建一個檔案並寫入資料後關閉，<code>0777</code> 為權限</li>
 </ul>
 <p><strong>os</strong></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"os"</span></span><br><span class="line"></span><br><span class="line">f, err := os.Open(<span class="string">"dt.txt"</span>) <span class="comment">//開啟檔案</span></span><br><span class="line"></span><br><span class="line">barr := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">10</span>)</span><br><span class="line">nb, err := f.Read(barr) <span class="comment">//讀取檔案前 10 byte 進 barr，nb 為讀取多少 byte</span></span><br><span class="line"></span><br><span class="line">f.Close() <span class="comment">//關閉檔案</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>開啟檔案後，讀取並關閉</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">f, err := os.Create(<span class="string">"outfile.txt"</span>)</span><br><span class="line"></span><br><span class="line">barr := []<span class="keyword">byte</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">nb, err := f.Write(barr)</span><br><span class="line">nb, err := f.WriteString(<span class="string">"Hi"</span>) <span class="comment">//寫入字串</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>創建檔案並寫入</li>
 </ul>
-<h6 id="tags-筆記-程式語言-Golang"><a href="#tags-筆記-程式語言-Golang" class="headerlink" title="tags: 筆記 程式語言 Golang"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Golang</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/07/22/Golang-basic/">https://kennyliblog.nctu.me/2019/07/22/Golang-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Golang/">Golang    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/07/24/Machine-learning-overfitting-problem/"><img class="prev_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>筆記 - 機器學習 過度擬合問題 ( overfitting )</span></div></a></div><div class="next-post pull-right"><a href="/2019/07/19/Machine-learning-logistic-regression/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - 機器學習 邏輯回歸</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/23/Python-basic/" title="筆記 - Python 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Python 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/08/08/Machine-learning-advice-for-model/" title="筆記 - 機器學習 有效的改善模型"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 有效的改善模型</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+<h6 id="tags-筆記-程式語言-Golang"><a href="#tags-筆記-程式語言-Golang" class="headerlink" title="tags: 筆記 程式語言 Golang"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Golang</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/07/22/Golang-basic/">https://kennyliblog.nctu.me/2019/07/22/Golang-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Golang/">Golang    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/07/24/Machine-learning-overfitting-problem/"><img class="prev_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>筆記 - 機器學習 過度擬合問題 ( overfitting )</span></div></a></div><div class="next-post pull-right"><a href="/2019/07/19/Machine-learning-logistic-regression/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - 機器學習 邏輯回歸</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/23/Python-basic/" title="筆記 - Python 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Python 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Machine-learning-basic-linear-regression/" title="筆記 - 機器學習 基礎與線性回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 基礎與線性回歸</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
 
 </script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>

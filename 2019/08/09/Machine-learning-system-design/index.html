@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - 機器學習 系統的設計 | Kenny's Blog</title><meta name="description" content="筆記 - 機器學習 系統的設計"><meta name="keywords" content="筆記,機器學習,系統設計"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - 機器學習 系統的設計"><meta name="twitter:description" content="筆記 - 機器學習 系統的設計"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - 機器學習 系統的設計"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - 機器學習 系統的設計"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="筆記 - 機器學習 有效的改善模型" href="https://kennyliblog.nctu.me/2019/08/08/Machine-learning-advice-for-model/"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>筆記 - 機器學習 系統的設計 | Kenny's Blog</title><meta name="description" content="筆記 - 機器學習 系統的設計"><meta name="keywords" content="筆記,機器學習,系統設計"><meta name="author" content="Kenny Li"><meta name="copyright" content="Kenny Li"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="筆記 - 機器學習 系統的設計"><meta name="twitter:description" content="筆記 - 機器學習 系統的設計"><meta name="twitter:image" content="/img/note.jpg"><meta property="og:type" content="article"><meta property="og:title" content="筆記 - 機器學習 系統的設計"><meta property="og:url" content="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/"><meta property="og:site_name" content="Kenny's Blog"><meta property="og:description" content="筆記 - 機器學習 系統的設計"><meta property="og:image" content="/img/note.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="問題 - 如何在 Hexo 上使用數學式" href="https://kennyliblog.nctu.me/2019/08/13/Hexo-use-mathJax/"><link rel="next" title="筆記 - 機器學習 有效的改善模型" href="https://kennyliblog.nctu.me/2019/08/08/Machine-learning-advice-for-model/"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -24,10 +24,8 @@
 </ul>
 <p>P.S. 很難說哪個項目最有用</p>
 <h3 id="誤差分析-Error-analysis"><a href="#誤差分析-Error-analysis" class="headerlink" title="誤差分析 ( Error analysis )"></a>誤差分析 ( Error analysis )</h3><ol>
-<li><p>從簡單的算法開始，快速實作，並在交叉驗證集測試</p>
-</li>
-<li><p>繪製出學習曲線，已確定算法該往哪個方向進行</p>
-</li>
+<li>從簡單的算法開始，快速實作，並在交叉驗證集測試</li>
+<li>繪製出學習曲線，已確定算法該往哪個方向進行</li>
 <li><p>手動檢查交叉驗證集中錯誤的資料，查找這些資料大多數發生錯誤的特徵</p>
 <ul>
 <li>例如 : 分類垃圾郵件時，釣魚郵件大多數分類錯誤，就針對釣魚郵件下去改善算法</li>
@@ -72,6 +70,7 @@
 <li>預測值與實際值都為 0 時，稱為真陰性 ( True Negative )</li>
 <li>預測值為 0，實際值為 1 時，稱為假陰性 ( False Negative )</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -80,7 +79,8 @@
 <th>真正沒罹癌 0</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>預測罹癌 1</td>
 <td>True Positive</td>
 <td>False Positive</td>
@@ -90,7 +90,9 @@
 <td>False Negative</td>
 <td>True Negative</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li><p>查準率 ( Precision )</p>
 <ul>
@@ -126,9 +128,10 @@
 </ul>
 <h5 id="使用-F1-Score-F-score-比較查準率與召回率"><a href="#使用-F1-Score-F-score-比較查準率與召回率" class="headerlink" title="使用 F1 Score ( F score )比較查準率與召回率"></a>使用 F<sub>1</sub> Score ( F score )比較查準率與召回率</h5><ul>
 <li>可以使用 F<sub>1</sub> Score 來比較查準率與召回率在各臨界值上的表現，幫助選取較好的臨界值</li>
-<li>F<sub>1</sub> Score : $2 * \dfrac{Precision * Recall}{Precision + Recall}$</li>
+<li>F<sub>1</sub> Score : $2 <em> \dfrac{Precision </em> Recall}{Precision + Recall}$</li>
 <li>查準率與召回率都較高時，F<sub>1</sub> Score 才會較高</li>
 </ul>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -138,7 +141,8 @@
 <th>F<sub>1</sub> Score</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>算法 1</td>
 <td>0.5</td>
 <td>0.4</td>
@@ -156,7 +160,9 @@
 <td>1.0</td>
 <td>0.0392</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>可以看出 <code>算法 1</code> 是較合適的</li>
 <li><code>算法 3</code> 雖然平均值比較高，但卻回到了偏斜類的問題，所有患者都預測為罹癌就會是 : 低查準率，高召回率</li>
@@ -192,6 +198,28 @@
 <li>擁有很多參數的學習算法</li>
 <li>若兩項都沒有，大數據對機器學習會沒什麼影響</li>
 </ul>
-<h6 id="tags-筆記-機器學習-系統設計"><a href="#tags-筆記-機器學習-系統設計" class="headerlink" title="tags: 筆記 機器學習 系統設計"></a>tags: <code>筆記</code> <code>機器學習</code> <code>系統設計</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/">https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/機器學習/">機器學習    </a><a class="post-meta__tags" href="/tags/系統設計/">系統設計    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/08/08/Machine-learning-advice-for-model/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - 機器學習 有效的改善模型</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/07/12/Machine-learning-basic-linear-regression/" title="筆記 - 機器學習 基礎與線性回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 基礎與線性回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/08/05/Machine-learning-neural-network-advanced/" title="筆記 - 機器學習 神經網路 - 進階學習"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 神經網路 - 進階學習</div></a></div><div class="relatedPosts_item"><a href="/2019/07/19/Machine-learning-logistic-regression/" title="筆記 - 機器學習 邏輯回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 邏輯回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/08/08/Machine-learning-advice-for-model/" title="筆記 - 機器學習 有效的改善模型"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 有效的改善模型</div></a></div><div class="relatedPosts_item"><a href="/2019/07/24/Machine-learning-overfitting-problem/" title="筆記 - 機器學習 過度擬合問題 ( overfitting )"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 過度擬合問題 ( overfitting )</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+<h6 id="tags-筆記-機器學習-系統設計"><a href="#tags-筆記-機器學習-系統設計" class="headerlink" title="tags: 筆記 機器學習 系統設計"></a>tags: <code>筆記</code> <code>機器學習</code> <code>系統設計</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/">https://kennyliblog.nctu.me/2019/08/09/Machine-learning-system-design/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/機器學習/">機器學習    </a><a class="post-meta__tags" href="/tags/系統設計/">系統設計    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/08/13/Hexo-use-mathJax/"><img class="prev_cover lozad" data-src="/img/problem.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>問題 - 如何在 Hexo 上使用數學式</span></div></a></div><div class="next-post pull-right"><a href="/2019/08/08/Machine-learning-advice-for-model/"><img class="next_cover lozad" data-src="/img/note.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>筆記 - 機器學習 有效的改善模型</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/08/08/Machine-learning-advice-for-model/" title="筆記 - 機器學習 有效的改善模型"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 有效的改善模型</div></a></div><div class="relatedPosts_item"><a href="/2019/07/19/Machine-learning-logistic-regression/" title="筆記 - 機器學習 邏輯回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 邏輯回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/24/Machine-learning-overfitting-problem/" title="筆記 - 機器學習 過度擬合問題 ( overfitting )"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 過度擬合問題 ( overfitting )</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Machine-learning-basic-linear-regression/" title="筆記 - 機器學習 基礎與線性回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 基礎與線性回歸</div></a></div><div class="relatedPosts_item"><a href="/2019/07/26/Machine-learning-neural-network-representation/" title="筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 神經網路 ( Neural Network ) - 表層結構</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
 
 </script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>

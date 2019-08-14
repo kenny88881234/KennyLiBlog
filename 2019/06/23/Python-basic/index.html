@@ -45,10 +45,8 @@
 </li>
 <li><p>字串</p>
 <ul>
-<li><p><code>&quot;hell\&quot;o</code> 輸出為 <code>hell&quot;o</code> : 想在字串中加入雙引好可以用 <code>\</code> 跳脫</p>
-</li>
-<li><p><code>&quot;&quot;&quot;hello&quot;&quot;&quot;</code> or <code>&#39;&#39;&#39;hello&#39;&#39;&#39;</code> : 在裡面的換行會直接呈現</p>
-</li>
+<li><code>&quot;hell\&quot;o</code> 輸出為 <code>hell&quot;o</code> : 想在字串中加入雙引好可以用 <code>\</code> 跳脫</li>
+<li><code>&quot;&quot;&quot;hello&quot;&quot;&quot;</code> or <code>&#39;&#39;&#39;hello&#39;&#39;&#39;</code> : 在裡面的換行會直接呈現</li>
 <li><p>字串會對內部的字元編號 ( 索引 )，從 0 開始算起，假設 <code>s = &quot;hello&quot;</code></p>
 <ul>
 <li><code>s[0]</code> 輸出為 <code>h</code></li>
@@ -94,14 +92,12 @@
 <li>在 python <code>{}</code> 用縮排 ( tab ) 取代</li>
 </ul>
 <h4 id="1-判斷式"><a href="#1-判斷式" class="headerlink" title="1. 判斷式"></a>1. 判斷式</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    print(<span class="string">"True 執行"</span>)</span><br><span class="line"><span class="keyword">elif</span> <span class="literal">False</span>:</span><br><span class="line">    print(<span class="string">"False 執行"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"跑不到"</span>)</span><br></pre></td></tr></table></figure>
-
 <p><strong>python 目前不支援 switch</strong></p>
 <h4 id="2-迴圈"><a href="#2-迴圈" class="headerlink" title="2. 迴圈"></a>2. 迴圈</h4><ol>
 <li>while</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> n&lt;<span class="number">10</span>:</span><br><span class="line">    printf(n)</span><br><span class="line">    n+=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li><p>for</p>
 <ul>
 <li><p>迴圈跑列表</p>
@@ -112,7 +108,6 @@
 </li>
 <li><p>迴圈跑range</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    print(x)</span><br></pre></td></tr></table></figure>
-
 <p><code>range(5)</code> : 0，1，2，3，4<br><code>range(3,7)</code> : 3，4，5，6</p>
 </li>
 </ul>
@@ -120,32 +115,26 @@
 </ol>
 <p><strong>迴圈最後可加 <code>else:</code>，else 在迴圈結束前執行，被 break 強制結束就不會執行 else</strong></p>
 <h3 id="函式、模組與封包"><a href="#函式、模組與封包" class="headerlink" title="函式、模組與封包"></a>函式、模組與封包</h3><h4 id="函式-用來做程式的包裝，同樣邏輯可以重複利用"><a href="#函式-用來做程式的包裝，同樣邏輯可以重複利用" class="headerlink" title="函式 : 用來做程式的包裝，同樣邏輯可以重複利用"></a>函式 : 用來做程式的包裝，同樣邏輯可以重複利用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(n1 = <span class="number">1</span>,n2 = <span class="number">2</span>)</span>:</span></span><br><span class="line">    result = n1 + n2</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line">print(add(<span class="number">3</span>, <span class="number">4</span>)) <span class="comment">#7</span></span><br><span class="line">print(add()) <span class="comment">#3</span></span><br><span class="line">print(add(n2 = <span class="number">3</span>,n1 = <span class="number">4</span>))</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">avg</span><span class="params">(*ns)</span>:</span> <span class="comment">#無限不定參數資料</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> ns:</span><br><span class="line">        sum += n</span><br><span class="line">    print(sum/len(ns))</span><br><span class="line"></span><br><span class="line">avg(<span class="number">3</span>, <span class="number">4</span>) <span class="comment">#3.5</span></span><br><span class="line">avg(<span class="number">3</span>, <span class="number">5</span>, <span class="number">10</span>) <span class="comment">#6.0</span></span><br></pre></td></tr></table></figure>
-
 <h4 id="模組-將程式寫在一個檔案中，此檔案可重複載入使用"><a href="#模組-將程式寫在一個檔案中，此檔案可重複載入使用" class="headerlink" title="模組 : 將程式寫在一個檔案中，此檔案可重複載入使用"></a>模組 : 將程式寫在一個檔案中，此檔案可重複載入使用</h4><ol>
 <li>載入</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys <span class="keyword">as</span> system <span class="comment">#載入模組並取別名 system</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>使用</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">print(system.platform)</span><br><span class="line">print(system.maxsize)</span><br><span class="line">print(system.path) <span class="comment">#印出模組的搜尋路徑</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
+<ol>
 <li>內建模組與自訂模組</li>
 </ol>
 <ul>
 <li>主程式</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys <span class="comment">#內建的模組</span></span><br><span class="line">sys.path.append(<span class="string">"modules"</span>) <span class="comment">#在模組的搜尋路徑列表中新增路徑，這裡 "modules" 為資料夾</span></span><br><span class="line"><span class="keyword">import</span> geometry <span class="comment">#自訂的模組，放在 "modules" 資料夾內</span></span><br><span class="line">print(geometry.distance(<span class="number">1</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">5</span>))</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>模組 : 放在 <code>modules</code> 資料夾內</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">distance</span><span class="params">(x1, y1, x2, y2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> ((x2 - x1)**<span class="number">2</span> + (y2 - y1)**<span class="number">2</span>)**<span class="number">0.5</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">slope</span><span class="params">(x1, y1, x2, y2)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> (y2 - y1)/(x2 - x1)</span><br></pre></td></tr></table></figure>
-
 <h4 id="封包-用來整理、分類模組"><a href="#封包-用來整理、分類模組" class="headerlink" title="封包 : 用來整理、分類模組"></a>封包 : 用來整理、分類模組</h4><ul>
 <li>檔案中的資料夾為封包，檔案為模組</li>
 </ul>
@@ -155,8 +144,7 @@
 <ul>
 <li><p>專案資料夾</p>
 <ul>
-<li><p><code>主程式.py</code></p>
-</li>
+<li><code>主程式.py</code></li>
 <li><p>封包資料夾</p>
 <ul>
 <li><code>__init__.py</code> : 必要</li>
@@ -172,7 +160,6 @@
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> 封包名稱.模組名稱 <span class="keyword">as</span> 模組別名</span><br></pre></td></tr></table></figure>
-
 <h3 id="類別與實體物件"><a href="#類別與實體物件" class="headerlink" title="類別與實體物件"></a>類別與實體物件</h3><ul>
 <li>封裝的變數或函式，統稱類別的屬性</li>
 </ul>
@@ -184,19 +171,15 @@
 </li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">類別名稱.屬性名稱</span><br></pre></td></tr></table></figure>
-
 <h4 id="實體物件"><a href="#實體物件" class="headerlink" title="實體物件"></a>實體物件</h4><ol>
 <li>建立實體物件</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 類別名稱:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment">#定義初始化函式</span></span><br><span class="line">        透過操作 self 來定義實體屬性</span><br><span class="line"><span class="comment"># 建立實體物件，放入變數 obj 中</span></span><br><span class="line">obj = 類別名稱() <span class="comment">#呼叫初始化函式</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line"></span><br><span class="line">p = Point(<span class="number">1</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>使用實體物件</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#實體物件.實體屬性名稱</span></span><br><span class="line">p = Point(<span class="number">1</span>,<span class="number">5</span>)</span><br><span class="line">print(p.x + p.y)</span><br></pre></td></tr></table></figure>
-
 <h4 id="實體方法"><a href="#實體方法" class="headerlink" title="實體方法"></a>實體方法</h4><ol>
 <li>建立實體方法</li>
 </ol>
@@ -204,16 +187,12 @@
 <li>封裝在實體物件中的函式</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 類別名稱:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span> <span class="comment">#定義初始化函式</span></span><br><span class="line">        封裝在實體物件中的變數</span><br><span class="line">    <span class="function"><span class="keyword">def</span> 方法名稱<span class="params">(self,更多自訂參數)</span>:</span></span><br><span class="line">        方法主體，透過 self 操作實體物件</span><br><span class="line"><span class="comment"># 建立實體物件，放入變數 obj 中</span></span><br><span class="line">obj = 類別名稱() <span class="comment">#呼叫初始化函式</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Point</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(self.x, self.y)</span><br><span class="line">p = Point(<span class="number">1</span>,<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>使用實體方法</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#實體物件.實體方法名稱(參數資料)</span></span><br><span class="line">p = Point(<span class="number">1</span>,<span class="number">5</span>) <span class="comment">#建立實體物件</span></span><br><span class="line">p.show() <span class="comment">#呼叫實體方法</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="文字檔案的讀取與儲存"><a href="#文字檔案的讀取與儲存" class="headerlink" title="文字檔案的讀取與儲存"></a>文字檔案的讀取與儲存</h3><h4 id="1-開啟檔案"><a href="#1-開啟檔案" class="headerlink" title="1. 開啟檔案"></a>1. 開啟檔案</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">檔案物件 = open(檔案路徑, mode = 開啟模式, encoding = 編碼)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>開啟模式</p>
 <ul>
@@ -232,63 +211,50 @@
 <li>讀取全部文字</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">檔案物件.read()</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>一次讀取一行</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 變數 <span class="keyword">in</span> 檔案物件:</span><br><span class="line">    從檔案依序讀取每行文字到變數中</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>讀取 JSON 格式</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">讀取到的資料 = json.load(檔案物件)</span><br></pre></td></tr></table></figure>
-
 <h4 id="3-儲存檔案"><a href="#3-儲存檔案" class="headerlink" title="3. 儲存檔案"></a>3. 儲存檔案</h4><ul>
 <li>寫入文字</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">檔案物件.write(<span class="string">"字串\n"</span>) <span class="comment">#要換行就 \n</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>寫入 JSON 格式</li>
 </ul>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json.dump(要寫入的資料, 檔案物件)</span><br></pre></td></tr></table></figure>
-
 <h4 id="4-關閉檔案"><a href="#4-關閉檔案" class="headerlink" title="4. 關閉檔案"></a>4. 關閉檔案</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">檔案物件.close()</span><br></pre></td></tr></table></figure>
-
 <h4 id="最佳實務"><a href="#最佳實務" class="headerlink" title="最佳實務"></a>最佳實務</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(檔案路徑, mode = 開啟模式) <span class="keyword">as</span> 檔案物件:</span><br><span class="line">    讀取或寫入檔案的程式</span><br><span class="line"><span class="comment">#以上區塊會自動、安全的關閉檔案，不需 close</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="亂數與統計模組"><a href="#亂數與統計模組" class="headerlink" title="亂數與統計模組"></a>亂數與統計模組</h3><h4 id="random"><a href="#random" class="headerlink" title="random"></a>random</h4><ol>
 <li>載入模組</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>使用 random</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">random.choice([<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]) <span class="comment">#從列表中隨機選取 1 個資料</span></span><br><span class="line">random.sample([<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>], n) <span class="comment">#從列表中隨機選取 n 個資料</span></span><br><span class="line">random.shuffle([<span class="number">0</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]) <span class="comment">#將列表的資料就地隨機調換順序</span></span><br><span class="line">random.random() <span class="comment"># 0 ~1 之間的隨機數亂數</span></span><br><span class="line">random.uniform(n, m) <span class="comment"># 取得 n ~ m 之間的隨機亂數</span></span><br><span class="line">random.normalvariate(n, m) <span class="comment"># 取得平均數 n，標準差 m 的常態分配亂數</span></span><br></pre></td></tr></table></figure>
-
 <p>常態分配範例 : </p>
 <p><img src="https://i.imgur.com/Ilx8LtH.png" alt></p>
 <h4 id="statistics"><a href="#statistics" class="headerlink" title="statistics"></a>statistics</h4><ol>
 <li>載入模組</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> statistics</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>使用 statistics</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">statistics.mean([<span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]) <span class="comment">#計算列表中數字的平均數</span></span><br><span class="line">statistics.median([<span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]) <span class="comment">#計算列表中數字的中位數</span></span><br><span class="line">statistics.stdev([<span class="number">1</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>]) <span class="comment">#計算列表中數字的標準差</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="網路連線與公開資料串接"><a href="#網路連線與公開資料串接" class="headerlink" title="網路連線與公開資料串接"></a>網路連線與公開資料串接</h3><h4 id="網路連線"><a href="#網路連線" class="headerlink" title="網路連線"></a>網路連線</h4><ol>
 <li>載入模組</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> request</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>下載特定網址資料</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> request.urlopen(網址) <span class="keyword">as</span> response:</span><br><span class="line">    data = response.read().decode(<span class="string">"utf-8"</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
-
 <h4 id="公開資料串接"><a href="#公開資料串接" class="headerlink" title="公開資料串接"></a>公開資料串接</h4><ol>
 <li><p>確認資料格式</p>
 <ul>
@@ -301,6 +267,28 @@
 </ul>
 </li>
 </ol>
-<h6 id="tags-筆記-程式語言-Python"><a href="#tags-筆記-程式語言-Python" class="headerlink" title="tags: 筆記 程式語言 Python"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Python</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/06/23/Python-basic/">https://kennyliblog.nctu.me/2019/06/23/Python-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Python/">Python    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/23/Python-web-crawler/"><img class="prev_cover lozad" data-src="/img/code.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>實作 - Python 實作 網路爬蟲 ( web crawler )</span></div></a></div><div class="next-post pull-right"><a href="/2019/06/20/JQuery/"><img class="next_cover lozad" data-src="/img/library.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>函式庫 - JQuery</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/22/Golang-basic/" title="筆記 - Golang 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Golang 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/08/08/Machine-learning-advice-for-model/" title="筆記 - 機器學習 有效的改善模型"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 有效的改善模型</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+<h6 id="tags-筆記-程式語言-Python"><a href="#tags-筆記-程式語言-Python" class="headerlink" title="tags: 筆記 程式語言 Python"></a>tags: <code>筆記</code> <code>程式語言</code> <code>Python</code></h6></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Kenny Li</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://kennyliblog.nctu.me/2019/06/23/Python-basic/">https://kennyliblog.nctu.me/2019/06/23/Python-basic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/筆記/">筆記    </a><a class="post-meta__tags" href="/tags/程式語言/">程式語言    </a><a class="post-meta__tags" href="/tags/Python/">Python    </a></div><div class="post_share"><div class="social-share" data-image="/img/note.jpg" data-sites="facebook,twitter"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/06/23/Python-web-crawler/"><img class="prev_cover lozad" data-src="/img/code.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>實作 - Python 實作 網路爬蟲 ( web crawler )</span></div></a></div><div class="next-post pull-right"><a href="/2019/06/20/JQuery/"><img class="next_cover lozad" data-src="/img/library.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>函式庫 - JQuery</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/06/17/CSS-basic/" title="筆記 - CSS 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - CSS 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Octave-basic/" title="筆記 - Octave 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Octave 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/17/Javascript-basic/" title="筆記 - Javascript 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Javascript 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/22/Golang-basic/" title="筆記 - Golang 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - Golang 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/06/28/MySQL-basic/" title="筆記 - MySQL 基礎"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - MySQL 基礎</div></a></div><div class="relatedPosts_item"><a href="/2019/07/12/Machine-learning-basic-linear-regression/" title="筆記 - 機器學習 基礎與線性回歸"><img class="relatedPosts_cover lozad" data-src="/img/note.jpg"><div class="relatedPosts_title">筆記 - 機器學習 基礎與線性回歸</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Kenny Li</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/baidupush.js"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
 
 </script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>
